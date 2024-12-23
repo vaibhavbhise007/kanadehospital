@@ -23,14 +23,19 @@ import ToastContainers from "./components/Toast/ToastContainer";
 
 
 // Loader
-import Loader from "./components/Loader/Loader";
+import Loader, { LoaderWithImage } from "./components/Loader/Loader";
 
 
 export default function App() {
   const { isLoggedIn, isLoading } = useSession();
   // Show loader until session is fetched
-  if (isLoading) return <Loader />;
+  if (isLoading) return ( 
+  <div className="flex bg-black h-screen justify-center items-center">
+    <LoaderWithImage/>;
+    </div>
 
+); 
+ 
 
   // Authentication routes
   const authRoutes = [
