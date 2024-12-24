@@ -19,9 +19,9 @@ export default function HeroSection() {
                     </div>
                     <div className="relative">
                         <img
-                            src="https://images.unsplash.com/photo-1631815587646-b85a1bb027e1?auto=format&fit=crop&q=80&w=800"
+                            src="./src/assets/doctor.jpg"
                             alt="Modern hospital facility"
-                            className="rounded-lg shadow-xl"
+                            className="rounded-lg shadow-xl h-80 w-full"
                         />
                     </div>
                 </div>

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X, Stethoscope } from 'lucide-react';
 import { Button } from '../../ui/Button';
-
+import logo from '../../../assets/svg/Kanadelogo.svg'
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
 
@@ -12,7 +12,7 @@ export default function Navbar() {
                 <div className="flex justify-between h-16">
                     <div className="flex">
                         <Link to="/" className="flex items-center">
-                            <Stethoscope className="h-8 w-8 text-[#C5A572]" />
+                            <img src={logo} className='h-10 w-10' />
                             <span className="ml-2 text-xl font-bold text-gray-800">Dr. Kanade Hospital</span>
                         </Link>
                     </div>
