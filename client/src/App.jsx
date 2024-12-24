@@ -5,7 +5,7 @@ import useSession from "./hooks/Authentication/useSession";
 
 // Components
 import Home from "./pages/Home/Home";
-import Dashboard from "./pages/Dashboard/Dashboard";
+
 
 
 // Authentication components
@@ -15,27 +15,32 @@ import Signup from "./pages/Authentication/Signup";
 // import VerifyEmail from "./pages/Authentication/VerifyEmail";
 // import ResetPassword from "./pages/Authentication/ResetPassword";
 
-// Layouts
+// Layouts  
 import MainLayout from "./layouts/MainLayout";
 import AuthLayout from "./layouts/AuthLayout";
-
+import AdminLayout from "./layouts/AdminLayout";
 import ToastContainers from "./components/Toast/ToastContainer";
 
 
 // Loader
 import Loader, { LoaderWithImage } from "./components/Loader/Loader";
+import AdminDashboard from "./pages/Dashboard/Dashboard";
+import About from "./pages/About/About";
+import Blog from "./pages/Blog/Blog";
+import Treatments from "./pages/Treatments/Treatments";
+import Contact from "./pages/Contact/Contact";
 
 
 export default function App() {
   const { isLoggedIn, isLoading } = useSession();
   // Show loader until session is fetched
-  if (isLoading) return ( 
-  <div className="flex bg-black h-screen justify-center items-center">
-    <LoaderWithImage/>;
+  if (isLoading) return (
+    <div className="flex bg-black h-screen justify-center items-center">
+      <LoaderWithImage />;
     </div>
 
-); 
- 
+  );
+
 
   // Authentication routes
   const authRoutes = [
@@ -49,20 +54,15 @@ export default function App() {
   // Main routes for logged-in users
   const mainRoutes = [
     { path: "/", element: <Home /> },
-    // { path: "/search", element: <SearchPage /> },
-    // { path: "/", element: <Schemes /> },
-    // { path: "/profile", element: isLoggedIn ? <Profile /> : <Navigate to="/login" /> },
-    // {
-    //   path: "/profileupdate",
-    //   element: isLoggedIn ? <ProfileUpdate /> : <Navigate to="/login" />,
-    // },
-    // { path: "/about", element: <About /> },
-    // { path: "/services", element: <Services /> },
+    { path: "/about", element: <About /> },
+    { path: "/treatments", element: <Treatments /> },
+    { path: "/contact", element: <Contact /> },
+    { path: "/blog", element: <Blog /> },
   ];
 
   // Admin routes (only accessible if logged in as admin)
   const adminRoutes = [
-    { path: "/dashboard", element: <Dashboard /> },
+    { path: "/dashboard", element: <AdminDashboard /> },
   ];
 
 
@@ -80,8 +80,7 @@ export default function App() {
       <Routes>
         {renderRoutes({ path: "", component: <MainLayout /> }, mainRoutes)}
         {renderRoutes({ path: "", component: <AuthLayout /> }, authRoutes)}
-        {/* {renderRoutes({ path: "", component: <AdminLayout /> }, adminRoutes)} */}
-        {/* Redirect to home if no route is found */}
+        {renderRoutes({ path: "", component: <AdminLayout /> }, adminRoutes)}
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
       <ToastContainers />

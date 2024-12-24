@@ -1,81 +1,61 @@
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { Menu, X, Stethoscope } from 'lucide-react';
+import { Button } from '../../ui/Button';
+
 export default function Navbar() {
+    const [isOpen, setIsOpen] = useState(false);
+
     return (
-        <nav className="bg-[#9C27B0] shadow-md">
-            <div className="container mx-auto px-4 py-3 flex justify-between items-center">
-                {/* Logo Section */}
-                <div className="flex items-center space-x-3">
-                    <img
-                        src="src/assets/logo.jpeg" // Replace with your logo URL
-                        alt="Logo"
-                        className="h-10"
-                    />
-                    <h1 className="text-xl font-bold text-white">Kanade Hospital</h1>
-                </div>
+        <nav className="bg-white shadow-md">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="flex justify-between h-16">
+                    <div className="flex">
+                        <Link to="/" className="flex items-center">
+                            <Stethoscope className="h-8 w-8 text-[#C5A572]" />
+                            <span className="ml-2 text-xl font-bold text-gray-800">Dr. Kanade Hospital</span>
+                        </Link>
+                    </div>
 
-                {/* Navigation Links */}
-                <ul className="flex space-x-6 text-lg font-semibold">
-                <li className="relative group">
-                        <span className="cursor-pointer">About Us</span>
-                        <ul className="absolute hidden group-hover:block bg-white text-black rounded shadow-lg mt-2 w-40">
-                            <li className="px-4 py-2 hover:bg-gray-200 cursor-pointer">
-                                Our Story
-                            </li>
-                            <li className="px-4 py-2 hover:bg-gray-200 cursor-pointer">
-                                Leadership
-                            </li>
-                            <li className="px-4 py-2 hover:bg-gray-200 cursor-pointer">
-                                Vision & Mission
-                            </li>
-                            <li className="px-4 py-2 hover:bg-gray-200 cursor-pointer">
-                                Accreditations & Awards
-                            </li>
-                            <li className="px-4 py-2 hover:bg-gray-200 cursor-pointer">
-                                Quality Policy
-                            </li>
-                            <li className="px-4 py-2 hover:bg-gray-200 cursor-pointer">
-                                CSR Initiatives
-                            </li>
-                        </ul>
-                    </li>
-                    <li className="relative group">
-                        <span className="cursor-pointer">Patient Care</span>
-                        <ul className="absolute hidden group-hover:block bg-white text-black rounded shadow-lg mt-2 w-40">
-                            <li className="px-4 py-2 hover:bg-gray-200">Facilities</li>
-                            <li className="px-4 py-2 hover:bg-gray-200">Guidelines</li>
-                        </ul>
-                    </li>
-                    <li className="relative group">
-                        <span className="cursor-pointer">Services</span>
-                        <ul className="absolute hidden group-hover:block bg-white text-black rounded shadow-lg mt-2 w-40">
-                            <li className="px-4 py-2 hover:bg-gray-200">Specialties</li>
-                            <li className="px-4 py-2 hover:bg-gray-200">Departments</li>
-                        </ul>
-                    </li>
-                    <li className="relative group">
-                        <span className="cursor-pointer">Academics</span>
-                        <ul className="absolute hidden group-hover:block bg-white text-black rounded shadow-lg mt-2 w-40">
-                            <li className="px-4 py-2 hover:bg-gray-200">Research</li>
-                            <li className="px-4 py-2 hover:bg-gray-200">Training</li>
-                        </ul>
-                    </li>
-                </ul>
+                    {/* Desktop Menu */}
+                    <div className="hidden md:flex md:items-center md:space-x-4">
+                        <Link to="/" className="text-gray-700 hover:text-[#C5A572] px-3 py-2 rounded-md">Home</Link>
+                        <Link to="/about" className="text-gray-700 hover:text-[#C5A572] px-3 py-2 rounded-md">About</Link>
+                        <Link to="/treatments" className="text-gray-700 hover:text-[#C5A572] px-3 py-2 rounded-md">Treatments</Link>
+                        <Link to="/blog" className="text-gray-700 hover:text-[#C5A572] px-3 py-2 rounded-md">Blog</Link>
+                        <Link to="/contact" className="text-gray-700 hover:text-[#C5A572] px-3 py-2 rounded-md">Contact</Link>
+                        <Button variant="default" className="bg-[#C5A572] hover:bg-[#B39362] text-white">
+                            Book Appointment
+                        </Button>
+                    </div>
 
-                {/* Action Buttons and Icons */}
-                <div className="flex items-center space-x-4">
-                    <button className="bg-red-600 text-white px-4 py-2 rounded-full shadow hover:bg-red-700">
-                        +91 1234567891
-                    </button>
-                    <button className="bg-orange-500 text-white px-4 py-2 rounded-full shadow hover:bg-orange-600">
-                        Our Specialties
-                    </button>
-                    <span className="cursor-pointer text-black hover:text-gray-700">
-                        🔍 {/* Search Icon */}
-                    </span>
-                    <span className="cursor-pointer text-black hover:text-gray-700">
-                        ☰ {/* Hamburger Menu Icon */}
-                    </span>
+                    {/* Mobile Menu Button */}
+                    <div className="md:hidden flex items-center">
+                        <button
+                            onClick={() => setIsOpen(!isOpen)}
+                            className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-[#C5A572]"
+                        >
+                            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                        </button>
+                    </div>
                 </div>
             </div>
+
+            {/* Mobile Menu */}
+            {isOpen && (
+                <div className="md:hidden">
+                    <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                        <Link to="/" className="block text-gray-700 hover:text-[#C5A572] px-3 py-2 rounded-md">Home</Link>
+                        <Link to="/about" className="block text-gray-700 hover:text-[#C5A572] px-3 py-2 rounded-md">About</Link>
+                        <Link to="/treatments" className="block text-gray-700 hover:text-[#C5A572] px-3 py-2 rounded-md">Treatments</Link>
+                        <Link to="/blog" className="block text-gray-700 hover:text-[#C5A572] px-3 py-2 rounded-md">Blog</Link>
+                        <Link to="/contact" className="block text-gray-700 hover:text-[#C5A572] px-3 py-2 rounded-md">Contact</Link>
+                        <Button variant="default" className="w-full bg-[#C5A572] hover:bg-[#B39362] text-white mt-4">
+                            Book Appointment
+                        </Button>
+                    </div>
+                </div>
+            )}
         </nav>
     );
 }
