@@ -19,12 +19,12 @@ export default function Navbar() {
 
                     {/* Desktop Menu */}
                     <div className="hidden md:flex md:items-center md:space-x-4">
-                        <Link to="/" className="text-gray-700 hover:text-[#C5A572] px-3 py-2 rounded-md">Home</Link>
-                        <Link to="/about" className="text-gray-700 hover:text-[#C5A572] px-3 py-2 rounded-md">About</Link>
-                        <Link to="/treatments" className="text-gray-700 hover:text-[#C5A572] px-3 py-2 rounded-md">Treatments</Link>
-                        <Link to="/blog" className="text-gray-700 hover:text-[#C5A572] px-3 py-2 rounded-md">Blog</Link>
-                        <Link to="/contact" className="text-gray-700 hover:text-[#C5A572] px-3 py-2 rounded-md">Contact</Link>
-                        <Button variant="default" className="bg-[#C5A572] hover:bg-[#B39362] text-white">
+                        <Link to="/" className="text-black hover:text-[rgb(107,71,55)] font-medium px-3 py-2 rounded-md">Home</Link>
+                        <Link to="/about" className="text-black hover:text-[rgb(107,71,55)] font-medium px-3 py-2 rounded-md">About</Link>
+                        <Link to="/treatments" className="text-black hover:text-[rgb(107,71,55)] font-medium px-3 py-2 rounded-md">Treatments</Link>
+                        <Link to="/blog" className="text-black hover:text-[rgb(107,71,55)] font-medium px-3 py-2 rounded-md">Blog</Link>
+                        <Link to="/contact" className="text-black hover:text-[rgb(107,71,55)] font-medium px-3 py-2 rounded-md">Contact</Link>
+                        <Button variant="default" className="bg-[rgb(107,71,55)] hover:bg-[#B39362] text-white">
                             Book Appointment
                         </Button>
                     </div>
