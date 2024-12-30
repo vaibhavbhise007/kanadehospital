@@ -29,11 +29,11 @@ const blogPosts = [
 export default function Blog() {
     return (
         <div className="bg-white">
-            <div className="relative py-16 bg-gradient-to-r from-gray-900 to-gray-800">
+            <div className="relative py-16 bg-[#e6dfdf]">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center text-white">
+                    <div className="text-center text-black">
                         <h1 className="text-4xl font-bold mb-4">Our Blog</h1>
-                        <p className="text-lg text-gray-300">Latest insights and medical updates</p>
+                        <p className="text-lg font-serif text-gray-600">Latest insights and medical updates</p>
                     </div>
                 </div>
             </div>
@@ -41,7 +41,7 @@ export default function Blog() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
                 <div className="grid md:grid-cols-3 gap-8">
                     {blogPosts.map((post, index) => (
-                        <Card key={index} className="overflow-hidden">
+                        <Card key={index} className="overflow-hidden hover:shadow-xl transition-shadow">
                             <img
                                 src={post.image}
                                 alt={post.title}
@@ -54,9 +54,9 @@ export default function Blog() {
                                     <Calendar className="h-4 w-4 mr-1" />
                                     <span>{new Date(post.date).toLocaleDateString()}</span>
                                 </div>
-                                <h2 className="text-xl font-bold text-gray-900 mb-2">{post.title}</h2>
-                                <p className="text-gray-600 mb-4">{post.excerpt}</p>
-                                <Button variant="link" className="text-[#C5A572] hover:text-[#B39362] p-0">
+                                <h2 className="text-xl font-serif text-gray-900 mb-2">{post.title}</h2>
+                                <p className="text-gray-600 font-serif mb-4">{post.excerpt}</p>
+                                <Button variant="link" className="text-[rgb(107,71,55)] hover:text-[#B39362] p-0">
                                     Read More <ArrowRight className="ml-2 h-4 w-4" />
                                 </Button>
                             </div>

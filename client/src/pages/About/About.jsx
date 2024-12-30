@@ -37,10 +37,10 @@ export default function About() {
                     </div>
                 </div>
 
-                <div className="grid md:grid-cols-3 gap-8 mb-16">
+                <div className="grid md:grid-cols-3 gap-8 mb-16 ">
                     {[
                         {
-                            icon: <Award className="h-8 w-8 text-[#C5A572]" />,
+                            icon: <Award className="h-8 w-8 text-[#C5A572] " />,
                             title: "15+ Years Experience",
                             description: "Dedicated years of service in advanced medical care"
                         },
@@ -55,7 +55,7 @@ export default function About() {
                             description: "High success rate with minimal recovery time"
                         }
                     ].map((stat, index) => (
-                        <Card key={index} className="p-6 text-center ">
+                        <Card key={index} className="p-6 text-center hover:shadow-xl transition-shadow">
                             <div className="flex flex-col items-center">
                                 {stat.icon}
                                 <h3 className="mt-4 text-xl font-serif text-black">{stat.title}</h3>
@@ -89,7 +89,7 @@ export default function About() {
                                 image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=300"
                             }
                         ].map((member, index) => (
-                            <Card key={index} className="p-6 text-center">
+                            <Card key={index} className="p-6 text-center hover:shadow-2xl transition-shadow">
                                 <img
                                     src={member.image}
                                     alt={member.name}

@@ -24,7 +24,7 @@ export default function OurSpecialists() {
                     }
                    
                 ].map((member, index) => (
-                    <Card key={index} className="p-6 text-center bg-white hover:shadow-2xl transition-shadow">
+                    <Card key={index} className="p-3 text-center bg-white hover:shadow-2xl transition-shadow">
                         <img
                             src={member.image}
                             alt={member.name}
@@ -34,7 +34,7 @@ export default function OurSpecialists() {
                         <h3 className="text-xl font-serif text-black">{member.name}</h3>
                         <p className='text-gray-600 font-serif text-sm'>{member.discription}</p>
                         <p className="text-gray-600 font-serif text-sm">{member.role}</p>
-                        <Button className="bg-[rgb(107,71,55)] hover:bg-[#B39362] text-white w-full h-6 mt-2">
+                        <Button className="bg-[rgb(107,71,55)] hover:bg-[#B39362] text-white w-full h-6 bottom-0 mt-2">
                                     View Profile 
                         </Button>
                     </Card>
