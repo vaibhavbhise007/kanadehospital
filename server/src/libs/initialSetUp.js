@@ -9,7 +9,7 @@ const createRoles = async () => {
     const count = await Role.estimatedDocumentCount({ timeout: 30000 }); // Increase the timeout to 30 seconds
     if (count > 0) return;
 
-    const rolesToCreate = ["user", "moderator", "admin", "customer"].map(
+    const rolesToCreate = [ "doctor", "admin"].map(
       (name) => ({ name })
     );
     const createdRoles = await Role.create(rolesToCreate);
@@ -76,58 +76,26 @@ const createAdmin = async () => {
   }
 };
 
-const createModerator = async () => {
+const createDoctor = async () => {
   try {
-    const moderatorData = {
-      name: "moderator",
-      email: "moderator@localhost.com",
-      roles: "moderator",
+    const doctorData = {
+      name: "doctor",
+      email: "doctor@localhost.com",
+      roles: "doctor",
       mobile: "1945514238",
-      password: "moderator123", // Change this to a secure password.
+      password: "doctor123", // Change this to a secure password.
     };
-    await createUserIfNotExists(moderatorData);
+    await createUserIfNotExists(doctorData);
   } catch (err) {
     console.error("Error creating moderator user:", err);
   }
 };
 
-const createCustomer = async () => {
-  try {
-    const customerData = {
-      name: "customer",
-      email: "customer@localhost.com",
-      roles: "customer",
-      mobile: "1945514239",
-      password: "customer123", // Change this to a secure password.
-    };
-
-    await createUserIfNotExists(customerData);
-  } catch (err) {
-    console.error("Error creating customer user:", err);
-  }
-};
-
-const createUser = async () => {
-  try {
-    const userData = {
-      name: "user",
-      email: "user@localhost.com",
-      roles: "user",
-      mobile: "1945514399",
-      password: "user123", // Change this to a secure password.
-    };
-    await createUserIfNotExists(userData);
-  } catch (err) {
-    console.error("Error creating user:", err);
-  }
-};
 
 // Create all users
 const createAllUsers = async () => {
   await createAdmin();
-  await createModerator();
-  await createCustomer();
-  await createUser();
+  await createDoctor();
 };
 module.exports = {
   createRoles,

@@ -3,14 +3,22 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import useSession from "./hooks/Authentication/useSession";
 
 
-// Components
+
+// Components Home
 import Home from "./pages/Home/Home";
+import About from "./pages/About/About";
+import Blog from "./pages/Blog/Blog";
+import Treatments from "./pages/Treatments/Treatments";
+import Contact from "./pages/Contact/Contact";
 
-
+// Admin routes
+import AdminDashboard from "./pages/Dashboard/AdminDashboard";
+import AdminAppointments from "./pages/Dashboard/AdminAppointments";
+import AdminBlogPosts from "./pages/Dashboard/AdminBlogPosts";
 
 // Authentication components
-import Login from "./pages/Authentication/Login";
 import Signup from "./pages/Authentication/Signup";
+import SignIn from "./pages/Authentication/SignIn";
 // import ForgotPassword from "./pages/Authentication/ForgotPassword";
 // import VerifyEmail from "./pages/Authentication/VerifyEmail";
 // import ResetPassword from "./pages/Authentication/ResetPassword";
@@ -24,12 +32,10 @@ import ToastContainers from "./components/Toast/ToastContainer";
 
 // Loader
 import Loader, { LoaderWithImage } from "./components/Loader/Loader";
-import AdminDashboard from "./pages/Dashboard/Dashboard";
-import About from "./pages/About/About";
-import Blog from "./pages/Blog/Blog";
-import Treatments from "./pages/Treatments/Treatments";
-import Contact from "./pages/Contact/Contact";
-
+import Sidebar from "./components/layouts/Sidebar/Sidebar";
+import ExpertsList from "./pages/Dashboard/ExpertsList";
+import AppointmentList from "./pages/Dashboard/AppointmentList";
+import BlogEditor from "./pages/Dashboard/BlogEditor";
 
 export default function App() {
   const { isLoggedIn, isLoading } = useSession();
@@ -44,7 +50,7 @@ export default function App() {
 
   // Authentication routes
   const authRoutes = [
-    { path: "/login", element: <Login /> },
+    { path: "/login", element: <SignIn /> },
     { path: "/signup", element: <Signup /> },
     // { path: "/authentication/confirmation/:token", element: <VerifyEmail /> },
     // { path: "/forgotpassword", element: <ForgotPassword /> },
@@ -62,7 +68,11 @@ export default function App() {
 
   // Admin routes (only accessible if logged in as admin)
   const adminRoutes = [
+    // { path: "/dashboard", element: <AdminDashboard /> },
     { path: "/dashboard", element: <AdminDashboard /> },
+    { path: "/appointments", element: <AppointmentList /> },
+    { path: "/blogeditor", element: <BlogEditor /> },
+    { path: "/expert", element: <ExpertsList /> },
   ];
 
 

@@ -8,11 +8,11 @@ export const fetchAppointments = createAsyncThunk('appointments/fetchAppointment
 export const updateAppointmentStatus = createAsyncThunk(
     'appointments/updateStatus',
     async ({ id, status }) => {
-        const response = await fetch(`/api/appointments/${id}`, {
-            method: 'PATCH',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ status }),
-        });
+        // const response = await fetch(`/api/appointments/${id}`, {
+        //     method: 'PATCH',
+        //     headers: { 'Content-Type': 'application/json' },
+        //     body: JSON.stringify({ status }),
+        // });
         return response.json();
     }
 );

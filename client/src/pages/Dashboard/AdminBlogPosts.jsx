@@ -19,8 +19,8 @@ export default function AdminBlogPosts() {
         console.log('Edit post:', id);
     };
 
-    const handleDelete = async (id) => {
-        await dispatch(deletePost(id));
+    const handleDelete = (id) => {
+        dispatch(deletePost(id));
     };
 
     if (loading) return <div>Loading...</div>;
