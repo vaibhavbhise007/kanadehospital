@@ -10,7 +10,7 @@ export default function HeroSection() {
                         <h1 className="text-4xl md:text-5xl font-bold mb-6">
                         Dr. Kanade Hospital & Harmony Laser Clinic
                         </h1>
-                        <p className="text-lg mb-8">
+                        <p className="text-lg font-serif mb-8">
                             Experience in various cosmetic gynecology and men's health treatments with minimal recovery time at Dr. Kanade Hospital.
                         </p>
                         <Button className="bg-[rgb(107,71,55)] hover:bg-[#B39362] text-white">

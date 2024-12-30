@@ -3,17 +3,17 @@ import { Card } from '../ui/Card';
 
 const features = [
     {
-        icon: <Star className="h-8 w-8 text-[#C5A572]" />,
+        icon: <Star className="h-8 w-8 text-[#C5A572] font-serif" />,
         title: "Expert Care",
         description: "Experienced specialists using cutting-edge laser technology"
     },
     {
-        icon: <Clock className="h-8 w-8 text-[#C5A572]" />,
+        icon: <Clock className="h-8 w-8 text-[#C5A572] font-serif" />,
         title: "Quick Recovery",
         description: "Minimal downtime with our advanced treatment methods"
     },
     {
-        icon: <Award className="h-8 w-8 text-[#C5A572]" />,
+        icon: <Award className="h-8 w-8 text-[#C5A572] font-serif" />,
         title: "Proven Results",
         description: "Thousands of successful treatments performed"
     }
@@ -21,11 +21,11 @@ const features = [
 
 export default function FeaturesSection() {
     return (
-        <section className="py-16 bg-white">
+        <section className=" bg-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-12">
                     <h2 className="text-3xl font-bold text-gray-900 mb-4">Why Choose Us</h2>
-                    <p className="text-gray-600">Leading the way in advanced piles treatment</p>
+                    <p className="text-black font-serif">Leading the way in advanced piles treatment</p>
                 </div>
 
                 <div className="grid md:grid-cols-3 gap-8">
@@ -34,7 +34,7 @@ export default function FeaturesSection() {
                             <div className="flex flex-col items-center text-center">
                                 {feature.icon}
                                 <h3 className="mt-4 text-xl font-semibold text-gray-900">{feature.title}</h3>
-                                <p className="mt-2 text-gray-600">{feature.description}</p>
+                                <p className="mt-2 text-black">{feature.description}</p>
                             </div>
                         </Card>
                     ))}

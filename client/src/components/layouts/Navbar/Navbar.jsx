@@ -1,18 +1,23 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, Stethoscope } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Button } from '../../ui/Button';
-import logo from '../../../assets/svg/Kanadelogo.svg'
+import logo from '../../../assets/svg/Kanadelogo.svg';
+
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
+
+    const handleLinkClick = () => {
+        setIsOpen(false); // Close the menu
+    };
 
     return (
         <nav className="bg-white shadow-md">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between h-16">
                     <div className="flex">
-                        <Link to="/" className="flex items-center">
-                            <img src={logo} className='h-10 w-10' />
+                        <Link to="/" className="flex items-center" onClick={handleLinkClick}>
+                            <img src={logo} className='h-10 w-10' alt="Logo" />
                             <span className="ml-2 text-xl font-bold text-gray-800">Dr. Kanade Hospital</span>
                         </Link>
                     </div>
@@ -45,12 +50,26 @@ export default function Navbar() {
             {isOpen && (
                 <div className="md:hidden">
                     <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                        <Link to="/" className="block text-gray-700 hover:text-[#C5A572] px-3 py-2 rounded-md">Home</Link>
-                        <Link to="/about" className="block text-gray-700 hover:text-[#C5A572] px-3 py-2 rounded-md">About</Link>
-                        <Link to="/treatments" className="block text-gray-700 hover:text-[#C5A572] px-3 py-2 rounded-md">Treatments</Link>
-                        <Link to="/blog" className="block text-gray-700 hover:text-[#C5A572] px-3 py-2 rounded-md">Blog</Link>
-                        <Link to="/contact" className="block text-gray-700 hover:text-[#C5A572] px-3 py-2 rounded-md">Contact</Link>
-                        <Button variant="default" className="w-full bg-[#C5A572] hover:bg-[#B39362] text-white mt-4">
+                        <Link to="/" className="block text-gray-700 hover:text-[#C5A572] px-3 py-2 rounded-md" onClick={handleLinkClick}>
+                            Home
+                        </Link>
+                        <Link to="/about" className="block text-gray-700 hover:text-[#C5A572] px-3 py-2 rounded-md" onClick={handleLinkClick}>
+                            About
+                        </Link>
+                        <Link to="/treatments" className="block text-gray-700 hover:text-[#C5A572] px-3 py-2 rounded-md" onClick={handleLinkClick}>
+                            Treatments
+                        </Link>
+                        <Link to="/blog" className="block text-gray-700 hover:text-[#C5A572] px-3 py-2 rounded-md" onClick={handleLinkClick}>
+                            Blog
+                        </Link>
+                        <Link to="/contact" className="block text-gray-700 hover:text-[#C5A572] px-3 py-2 rounded-md" onClick={handleLinkClick}>
+                            Contact
+                        </Link>
+                        <Button
+                            variant="default"
+                            className="w-full bg-[#C5A572] hover:bg-[#B39362] text-white mt-4"
+                            onClick={handleLinkClick}
+                        >
                             Book Appointment
                         </Button>
                     </div>

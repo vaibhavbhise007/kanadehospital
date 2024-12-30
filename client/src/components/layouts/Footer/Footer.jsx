@@ -26,15 +26,15 @@ export default function Footer() {
             <ul className="space-y-2">
               <li className="flex items-center text-sm">
                 <Phone className="h-4 w-4 mr-2" />
-                +91 123 456 7890
+                +91 9420636736 / 8208423324
               </li>
               <li className="flex items-center text-sm">
                 <Mail className="h-4 w-4 mr-2" />
-                info@drkanade.com
+                drkanadehospital76@gmail.com
               </li>
               <li className="flex items-center text-sm">
                 <MapPin className="h-4 w-4 mr-2" />
-                123 Hospital Road, Mumbai
+                Nagar-Manmad Road, Rahata (Shirdi), Ahmednagar District.
               </li>
             </ul>
           </div>
@@ -43,7 +43,7 @@ export default function Footer() {
             <h4 className="font-semibold mb-4">Working Hours</h4>
             <ul className="space-y-2 text-sm">
               <li>Monday - Saturday</li>
-              <li>9:00 AM - 8:00 PM</li>
+              <li>11:00 AM - 3:00 PM</li>
               <li>Emergency: 24/7</li>
             </ul>
           </div>
