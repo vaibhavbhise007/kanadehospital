@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import SignUpForm from '../../components/auth/SignUpForm';
+import SignInForm from '../../components/auth/SignInForm';
 import { Stethoscope } from 'lucide-react';
 
-export default function SignUp() {
+export default function SignIn() {
   const [isLoading, setIsLoading] = useState(false);
 
   const handleFormSubmit = async (data) => {
     try {
       setIsLoading(true);
       // Simulate API call
-    //   await new Promise((resolve) => setTimeout(resolve, 2000));
+      await new Promise((resolve) => setTimeout(resolve, 2000));
       console.log('Form submitted:', data);
     } catch (error) {
-      console.error('Error during sign-up:', error);
+      console.error('Error during sign-in:', error);
     } finally {
       setIsLoading(false);
     }
@@ -26,12 +26,12 @@ export default function SignUp() {
           <Stethoscope className="w-12 h-12 text-blue-600" />
         </div>
         <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-          Create an Admin Account
+          Sign in to Admin Panel
         </h2>
         <p className="mt-2 text-center text-sm text-gray-600">
-          Already have an account?{' '}
-          <Link to="/login" className="font-medium text-blue-600 hover:text-blue-500">
-            Sign in
+          Or{' '}
+          <Link to="/signup" className="font-medium text-blue-600 hover:text-blue-500">
+            create a new account
           </Link>
         </p>
       </div>
@@ -43,7 +43,7 @@ export default function SignUp() {
               <div className="spinner-border animate-spin inline-block w-8 h-8 border-4 rounded-full text-blue-600" />
             </div>
           ) : (
-            <SignUpForm onSubmit={handleFormSubmit} />
+            <SignInForm onSubmit={handleFormSubmit} />
           )}
         </div>
       </div>

@@ -12,8 +12,8 @@ export default function AdminAppointments() {
         dispatch(fetchAppointments());
     }, [dispatch]);
 
-    const handleStatusChange = async (id, newStatus) => {
-        await dispatch(updateAppointmentStatus({ id, status: newStatus }));
+    const handleStatusChange =  (id, newStatus) => {
+        dispatch(updateAppointmentStatus({ id, status: newStatus }));
     };
 
     if (loading) return <div>Loading...</div>;
