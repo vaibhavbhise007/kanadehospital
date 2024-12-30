@@ -18,7 +18,7 @@ function MainLayout() {
             <Navbar />
             <main>
                 {loading ? (
-                    <Loader />
+                    <div className='flex justify-center items-center bg-black h-200px '><Loader /> </div>
                 ) : (
                     <Outlet />
                 )}
