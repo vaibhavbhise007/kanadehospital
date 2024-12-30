@@ -70,7 +70,6 @@ export default function App() {
   const adminRoutes = [
     // { path: "/dashboard", element: <AdminDashboard /> },
     { path: "/dashboard", element: <AdminDashboard /> },
-    { path: "/sidebar", element: <Sidebar /> },
     { path: "/appointments", element: <AppointmentList /> },
     { path: "/blogeditor", element: <BlogEditor /> },
     { path: "/expert", element: <ExpertsList /> },
