@@ -15,6 +15,10 @@ require("dotenv").config({ path: ".env" });
 const authRouter = require("./routers/auth.routes.js");
 const usersRouter = require("./routers/users.routes.js");
 
+const appointmentRouter = require("./routers/appointmentRoutes.js");
+const blogRouter = require("./routers/blogRoutes.js");
+const employeeRouter = require("./routers/employeeRoutes.js");
+
 // Middleware for parsing URL-encoded and JSON request bodies
 app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ limit: "10mb", extended: true }));
@@ -53,7 +57,12 @@ if (process.env.NODE_ENV === "production") {
 
 // Define routes with tags
 app.use("/api/auth", authRouter);
-
 app.use("/api/users", usersRouter);
 
+app.use("/api/appointments", appointmentRouter);
+// app.use("/api/employees", employeeRouter);
+// app.use("/api/blog", blogRouter);
+
+
 module.exports = app;
+
