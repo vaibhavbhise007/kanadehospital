@@ -10,6 +10,7 @@ import About from "./pages/About/About";
 import Blog from "./pages/Blog/Blog";
 import Treatments from "./pages/Treatments/Treatments";
 import Contact from "./pages/Contact/Contact";
+import Appointment from "./pages/Appointment/Appointment";
 
 // Admin routes
 import AdminDashboard from "./pages/Dashboard/AdminDashboard";
@@ -64,6 +65,7 @@ export default function App() {
     { path: "/treatments", element: <Treatments /> },
     { path: "/contact", element: <Contact /> },
     { path: "/blog", element: <Blog /> },
+    { path: "/appointment", element: <Appointment /> },
   ];
 
   // Admin routes (only accessible if logged in as admin)

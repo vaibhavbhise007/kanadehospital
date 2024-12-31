@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { Button } from '../../ui/Button';
 import logo from '../../../assets/svg/Kanadelogo.svg';
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
-
+    const navigate = useNavigate();
     const handleLinkClick = () => {
         setIsOpen(false); // Close the menu
     };
@@ -29,7 +29,7 @@ export default function Navbar() {
                         <Link to="/treatments" className="text-black hover:text-[rgb(107,71,55)] font-medium px-3 py-2 rounded-md">Treatments</Link>
                         <Link to="/blog" className="text-black hover:text-[rgb(107,71,55)] font-medium px-3 py-2 rounded-md">Blog</Link>
                         <Link to="/contact" className="text-black hover:text-[rgb(107,71,55)] font-medium px-3 py-2 rounded-md">Contact</Link>
-                        <Button variant="default" className="bg-[rgb(107,71,55)] hover:bg-[#B39362] text-white">
+                        <Button onClick={()=>navigate("/appointment")} variant="default" className="bg-[rgb(107,71,55)] hover:bg-[#B39362] text-white">
                             Book Appointment
                         </Button>
                     </div>

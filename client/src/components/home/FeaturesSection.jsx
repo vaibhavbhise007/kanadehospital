@@ -15,7 +15,7 @@ const features = [
     {
         icon: <Award className="h-8 w-8 text-[#C5A572] font-serif" />,
         title: "Proven Results",
-        description: "Thousands of successful treatments performed"
+        description: "Hundreds of successful treatments performed"
     }
 ];
 
