@@ -11,6 +11,7 @@ import Blog from "./pages/Blog/Blog";
 import Treatments from "./pages/Treatments/Treatments";
 import Contact from "./pages/Contact/Contact";
 import Appointment from "./pages/Appointment/Appointment";
+import Profile from "./pages/Profile/Profile";
 
 // Admin routes
 import AdminDashboard from "./pages/Dashboard/AdminDashboard";
@@ -66,6 +67,7 @@ export default function App() {
     { path: "/contact", element: <Contact /> },
     { path: "/blog", element: <Blog /> },
     { path: "/appointment", element: <Appointment /> },
+    { path: "/profile/:id", element: <Profile /> },
   ];
 
   // Admin routes (only accessible if logged in as admin)
