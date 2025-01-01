@@ -106,7 +106,6 @@ const createUser = async (req, res) => {
 // Function to update user profile and handle image upload
 async function updateProfileById(req, res) {
   const {
-    profilePicture,
     email,
     lastName,
     firstName,

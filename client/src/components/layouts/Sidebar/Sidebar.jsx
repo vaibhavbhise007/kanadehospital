@@ -7,10 +7,10 @@ export default function Sidebar() {
   const [isOpen, setIsOpen] = React.useState(true);
 
   const menuItems = [
-    { icon: LayoutDashboard, label: 'Dashboard', path: '/admin' },
-    { icon: Calendar, label: 'Appointments', path: '/admin/appointments' },
-    { icon: Users, label: 'Experts', path: '/admin/experts' },
-    { icon: FileText, label: 'Blog Posts', path: '/admin/blog' },
+    { icon: LayoutDashboard, label: 'Dashboard', path: '/dashboard' },
+    { icon: Calendar, label: 'Appointments', path: '/appointments' },
+    { icon: Users, label: 'Experts', path: '/expert' },
+    { icon: FileText, label: 'Blog Posts', path: '/blogeditor' },
   ];
 
   return (

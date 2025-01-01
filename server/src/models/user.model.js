@@ -41,26 +41,16 @@ const userSchema = new Schema(
       default:
         "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
     },
-    subscribed: {
-      type: Boolean,
-      default: false,
-    },
     profileState: {
       type: String,
       default: "incomplete",
       trim: true,
       lowercase: true,
     },
-    works: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "Work",
-      },
-    ],
-    client: {
-      type: Boolean,
-      default: false,
-    },
+    img_id: {
+      type: String,
+      default: null,
+    }
   },
   {
     timestamps: true,
@@ -81,26 +71,6 @@ userSchema.statics.comparePassword = async (password, receivedPassword) => {
   return await bcrypt.compare(password, receivedPassword);
 };
 
-// Instance methods
-userSchema.methods.setIsClient = function () {
-  this.client = true;
-  return this;
-};
-
-userSchema.methods.addWorks = function (workId) {
-  this.works = [...this.works, workId];
-  return this;
-};
-
-userSchema.methods.deleteWorks = function (workId) {
-  this.works = this.works.filter((work) => work !== workId);
-  return this;
-};
-
-userSchema.methods.subscribe = function () {
-  this.subscribed = true;
-  return this;
-};
 
 const User = mongoose.model("User", userSchema);
 

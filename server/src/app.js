@@ -60,8 +60,8 @@ app.use("/api/auth", authRouter);
 app.use("/api/users", usersRouter);
 
 app.use("/api/appointments", appointmentRouter);
-// app.use("/api/employees", employeeRouter);
-// app.use("/api/blog", blogRouter);
+app.use("/api/employees", employeeRouter);
+app.use("/api/blog", blogRouter);
 
 
 module.exports = app;

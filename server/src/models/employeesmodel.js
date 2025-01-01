@@ -15,38 +15,24 @@ const EmployeeSchema = new mongoose.Schema({
   img: {
     type: String,
     required: true,
-    validate: {
-      validator: function (url) {
-        return /^(https?:\/\/.*\.(?:png|jpg|jpeg|gif|svg))$/i.test(url);
-      },
-      default:
-        "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
-      message: 'Invalid image URL',
-    },
+   
+  },
+  img_id: {
+    type: String,
+    default: null,
   },
   resume: {
     type: String,
     required: true,
-    validate: {
-      validator: function (url) {
-        return /^(https?:\/\/.*\.(?:pdf|doc|docx))$/i.test(url);
-      },
-      message: 'Invalid resume URL',
-    },
+    
   },
   joiningDate: {
     type: Date,
-    required: true,
   },
   experience: {
     type: String,
     required: true,
-    validate: {
-      validator: function (value) {
-        return /^[0-9]+(\.[0-9]{1,2})? years?$/.test(value);
-      },
-      message: 'Experience must be in years (e.g., "2 years" or "2.5 years")',
-    },
+  
   },
   mobileNumber: {
     type: String,
@@ -56,8 +42,7 @@ const EmployeeSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true,
-    unique: true,
-    match: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/, // Validates an email address
+    unique: true
   },
   address: {
     type: String,

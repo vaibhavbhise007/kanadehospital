@@ -1,23 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import SignUpForm from '../../components/auth/SignUpForm';
-import { Stethoscope } from 'lucide-react';
+import { Stethoscope, User, Mail, Lock } from 'lucide-react';
+import useSignupForm from '../../hooks/Authentication/useSignupForm';
 
 export default function SignUp() {
-  const [isLoading, setIsLoading] = useState(false);
-
-  const handleFormSubmit = async (data) => {
-    try {
-      setIsLoading(true);
-      // Simulate API call
-    //   await new Promise((resolve) => setTimeout(resolve, 2000));
-      console.log('Form submitted:', data);
-    } catch (error) {
-      console.error('Error during sign-up:', error);
-    } finally {
-      setIsLoading(false);
-    }
-  };
+  const { 
+    register, 
+    isLoading, 
+    handleSubmit, 
+    errors, 
+    Errors, 
+    onSubmit, 
+    serverError, 
+    successMessage 
+  } = useSignupForm();
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
@@ -43,7 +39,64 @@ export default function SignUp() {
               <div className="spinner-border animate-spin inline-block w-8 h-8 border-4 rounded-full text-blue-600" />
             </div>
           ) : (
-            <SignUpForm onSubmit={handleFormSubmit} />
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 w-full max-w-sm">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                <div className="relative">
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <User className="h-5 w-5 text-gray-400" />
+                  </div>
+                  <input
+                    type="text"
+                    {...register('name')}
+                    className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                    placeholder="John Doe"
+                    required
+                  />
+                  {errors.name && <p className="text-red-500 text-xs">{errors.name.message}</p>}
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                <div className="relative">
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <Mail className="h-5 w-5 text-gray-400" />
+                  </div>
+                  <input
+                    type="email"
+                    {...register('email')}
+                    className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                    placeholder="admin@hospital.com"
+                    required
+                  />
+                  {errors.email && <p className="text-red-500 text-xs">{errors.email.message}</p>}
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                <div className="relative">
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <Lock className="h-5 w-5 text-gray-400" />
+                  </div>
+                  <input
+                    type="password"
+                    {...register('password')}
+                    className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                    required
+                  />
+                  {errors.password && <p className="text-red-500 text-xs">{errors.password.message}</p>}
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              >
+                Sign Up
+              </button>
+            </form>
           )}
         </div>
       </div>
