@@ -22,7 +22,7 @@ export default function About() {
 
                 <div className="md:w-1/2 px-7 py-8 ">
                     <h1 className="text-4xl font-bold text-[rgb(107,71,55)] leading-tight">
-                        . <span className="text-black">.</span>
+                        .<span className="text-black">.</span>
                     </h1>
                     <h1 className="text-4xl font-bold text-[rgb(107,71,55)] leading-tight mt-2">
                        . <span className="text-black">.</span>
