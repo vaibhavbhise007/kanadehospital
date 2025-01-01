@@ -1,7 +1,7 @@
-// Import required modules and middleware
+// Import required modules and middle
 const multer = require("multer");
 const router = require("express").Router();
-
+const path = require('path');
 const {
   getAllUsers,
   getUserById,

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import Loader from '../components/Loader/Loader';
+import Sidebar from '../components/layouts/Sidebar/Sidebar';
 
 const AdminLayout = () => {
     const [loading, setLoading] = useState(true);
@@ -13,8 +14,9 @@ const AdminLayout = () => {
     }, []);
 
     return (
-        <div>
-            <main>
+        <div className="flex min-h-screen bg-gray-100">
+            <Sidebar/>
+            <main className="flex-1 overflow-auto">
                 {loading ? (
                     <Loader />
                 ) : (
