@@ -18,6 +18,8 @@ const usersRouter = require("./routers/users.routes.js");
 const appointmentRouter = require("./routers/appointmentRoutes.js");
 const blogRouter = require("./routers/blogRoutes.js");
 const employeeRouter = require("./routers/employeeRoutes.js");
+const treatmentRouter = require("./routers/treatmentRoutes.js");
+const contactRouter = require("./routers/contactRoutes.js");
 
 // Middleware for parsing URL-encoded and JSON request bodies
 app.use(express.json({ limit: "10mb" }));
@@ -61,8 +63,9 @@ app.use("/api/users", usersRouter);
 
 app.use("/api/appointments", appointmentRouter);
 app.use("/api/employees", employeeRouter);
-app.use("/api/blog", blogRouter);
-
+app.use("/api/blogs", blogRouter);
+app.use("/api/treatments", treatmentRouter);
+app.use("/api/contacts", contactRouter);
 
 module.exports = app;
 
