@@ -11,7 +11,7 @@ export default function SignInForm() {
     e.preventDefault();
     // TODO: Add actual authentication
     if (email === 'admin@hospital.com' && password === 'admin') {
-      navigate('/admin');
+      navigate('/dashboard');
     }
   };
 
