@@ -66,7 +66,7 @@ const createAdmin = async () => {
       name: "admin",
       email: "admin@localhost.com",
       roles: "admin",
-      mobile: "1945514235",
+      mobile: "9545877732",
       password: "admin123", // Change this to a secure password.
     };
 
@@ -82,7 +82,7 @@ const createDoctor = async () => {
       name: "doctor",
       email: "doctor@localhost.com",
       roles: "doctor",
-      mobile: "1945514238",
+      mobile: "9545877733",
       password: "doctor123", // Change this to a secure password.
     };
     await createUserIfNotExists(doctorData);

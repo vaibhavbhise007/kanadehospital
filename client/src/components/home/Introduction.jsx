@@ -1,4 +1,5 @@
 import React from 'react'
+import img from '../../assets/intro.jpg'
 
 export default function Introduction() {
     return (
@@ -7,9 +8,9 @@ export default function Introduction() {
                 <div className="grid md:grid-cols-2 gap-12 items-center">
                     <div className="relative">
                         <img
-                            src="./src/assets/doctor.jpg"
+                            src={img}
                             alt="Modern hospital facility"
-                            className="rounded-lg shadow-xl h-80 w-full"
+                            className="rounded-lg shadow-xl h-[62   0px] w-full"
                         />
                     </div>
                     <div>
