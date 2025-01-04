@@ -9,6 +9,8 @@ export default {
     },
   },
   plugins: [
+    
     // Add any Tailwind plugins if you're using them
   ],
 };
+

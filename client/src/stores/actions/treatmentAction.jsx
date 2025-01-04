@@ -2,9 +2,10 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { POST, GET } from "../../utils/http";
 import { handleError } from "../../utils/error";
 
-export const fetchBlog = createAsyncThunk('blog/fetchBlog', async (_, { rejectWithValue }) => {
+
+export const fetchTreatments = createAsyncThunk('treatment/fetchTreatment', async (_, { rejectWithValue }) => {
     try {
-            const { response, json } = await GET("/blogs");
+            const { response, json } = await GET("/treatments");
                   if (response.status === 200) {
                       return json;
                   }
@@ -13,5 +14,3 @@ export const fetchBlog = createAsyncThunk('blog/fetchBlog', async (_, { rejectWi
                   return rejectWithValue(handleError(error));
               }
 });
-
-

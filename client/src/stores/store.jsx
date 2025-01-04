@@ -5,6 +5,7 @@ import authReducer from './slices/authSlice'
 import blogReducer from './slices/blogSlice';
 import appointmentsReducer from './slices/appointmentsSlice';
 import contactReducer from './slices/contactSlice';
+import treatmentReducer from './slices/treatmentSlice';
 
 // Create a Redux store containing our reducers.
 export const store = configureStore({
@@ -15,6 +16,7 @@ export const store = configureStore({
         theme: themeReducer,
         auth: authReducer,
         contact: contactReducer,
+        treatment: treatmentReducer,
     },
 });
 
