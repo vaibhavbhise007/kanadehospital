@@ -1,19 +1,14 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchBlog } from '../../stores/actions/blogActions'; // Adjust the path as needed
+import React, { useEffect } from 'react'; // Adjust the path as needed
 import { Card } from '../../components/ui/Card';
 import { Button } from '../../components/ui/Button';
 import { Calendar, User, ArrowRight } from 'lucide-react';
+import useGetAllBlogs from '../../hooks/blog/useGetAllBlogs';
 
 export default function Blog() {
-    const dispatch = useDispatch();
-
-    // Access state from the Redux store
-    const { blogs, loading, error } = useSelector((state) => state.blog);
-    // Fetch posts when the component mounts
-    useEffect(() => {
-        dispatch(fetchBlog());
-    }, [dispatch]);
+      const{blogs, loading, error}=useGetAllBlogs();
+      if(loading){
+        return <div>Loading...</div>;
+      }
 
     return (
         <div className="bg-white">

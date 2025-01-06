@@ -69,6 +69,11 @@ export default function SignIn() {
         >
           {isLoading ? "Signing In..." : "Sign In"}
         </button>
+        <div className="text-sm mt-4">
+              <Link to="/forgotpassword" className="font-medium text-blue-600 hover:text-blue-500">
+                Forgot your password?
+              </Link>
+            </div>
     </form>
     {/* {isLoading && (
         <div className="flex justify-center mt-4">

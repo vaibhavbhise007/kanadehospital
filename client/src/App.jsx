@@ -21,9 +21,9 @@ import AdminBlogPosts from "./pages/Dashboard/AdminBlogPosts";
 // Authentication components
 import Signup from "./pages/Authentication/Signup";
 import SignIn from "./pages/Authentication/SignIn";
-// import ForgotPassword from "./pages/Authentication/ForgotPassword";
+import ForgotPassword from "./pages/Authentication/ForgotPassword";
 import EmailVerification from "./pages/Authentication/verification";
-// import ResetPassword from "./pages/Authentication/ResetPassword";
+import ResetPassword from "./pages/Authentication/ResetPassword";
 
 // Layouts  
 import MainLayout from "./layouts/MainLayout";
@@ -38,6 +38,7 @@ import Sidebar from "./components/layouts/Sidebar/Sidebar";
 import ExpertsList from "./pages/Dashboard/ExpertsList";
 import AppointmentList from "./pages/Dashboard/AppointmentList";
 import BlogEditor from "./pages/Dashboard/BlogEditor";
+
 
 
 export default function App() {
@@ -56,8 +57,8 @@ export default function App() {
     { path: "/login", element: <SignIn /> },
     { path: "/signup", element: <Signup /> },
     { path: "/authentication/confirmation/:token", element: <EmailVerification /> },
-    // { path: "/forgotpassword", element: <ForgotPassword /> },
-    // { path: "/authentication/resetPassword/:token", element: <ResetPassword /> },
+    { path: "/forgotpassword", element: <ForgotPassword /> },
+    { path: "/authentication/resetPassword/:token", element: <ResetPassword /> },
   ];
 
   // Main routes for logged-in users

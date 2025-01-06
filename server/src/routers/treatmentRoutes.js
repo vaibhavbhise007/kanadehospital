@@ -13,7 +13,7 @@ const {
 // Multer configuration for handling file uploads
 const storageProduct = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "src/storage/upload/image/treatment");
+    cb(null, "server/src/storage/upload/image/treatment");
   },
   filename: function (req, file, cb) {
     cb(null, Date.now() + path.extname(file.originalname));

@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchBlog } from '../actions/blogActions';
+import { deleteBlog, fetchBlog, updateBlog } from '../actions/blogActions';
+import { postBlog } from '../actions/blogActions';
 
 const initialState = {
     blogs: [], // Consider normalizing if needed
@@ -28,6 +29,55 @@ const blogSlice = createSlice({
                 state.loading = false;
                 state.error = action.error.message || 'Failed to fetch posts';
             })
+
+             // **Post New Blog**
+             .addCase(postBlog.pending, (state) => {
+                state.loading = true;
+                state.error = null;
+            })
+            .addCase(postBlog.fulfilled, (state, action) => {
+                state.loading = false;
+                state.blogs.push(action.payload); // Add new blog to the list
+                state.success = true;
+            })
+            .addCase(postBlog.rejected, (state, action) => {
+                state.loading = false;
+                state.error = action.error.message || 'Failed to post blog';
+            })
+
+            // **Update Blog**
+            .addCase(updateBlog.pending, (state) => {
+                state.loading = true;
+                state.error = null;
+            })
+            .addCase(updateBlog.fulfilled, (state, action) => {
+                state.loading = false;
+                const updatedBlog = action.payload;
+                state.blogs = state.blogs.map(blog =>
+                    blog.id === updatedBlog.id ? updatedBlog : blog
+                );
+                state.success = true;
+            })
+            .addCase(updateBlog.rejected, (state, action) => {
+                state.loading = false;
+                state.error = action.error.message || 'Failed to update blog';
+            })
+
+            // **Delete Blog**
+            .addCase(deleteBlog.pending, (state) => {
+                state.loading = true;
+                state.error = null;
+            })
+            .addCase(deleteBlog.fulfilled, (state, action) => {
+                state.loading = false;
+                state.blogs = state.blogs.filter(blog => blog.id !== action.payload.id);
+                state.success = true;
+            })
+            .addCase(deleteBlog.rejected, (state, action) => {
+                state.loading = false;
+                state.error = action.error.message || 'Failed to delete blog';
+            });
+            
     },
 });
 

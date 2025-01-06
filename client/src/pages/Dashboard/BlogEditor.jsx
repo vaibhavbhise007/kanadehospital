@@ -1,42 +1,42 @@
 import React, { useState } from 'react';
 import { Image, Save } from 'lucide-react';
+import useCreateBlog from '../../hooks/blog/useCreateBlog';
 
 export default function BlogEditor() {
-  const [post, setPost] = useState({
-    title: '',
-    content: '',
-    image: '',
-    category: '',
-  });
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle blog post submission
-    console.log('Blog post:', post);
-  };
+  const { 
+    isLoading, 
+    handleSubmit, 
+    handleImageChange,
+    onSubmit, 
+    serverError, 
+    successMessage,
+    errors,
+    post,
+    setPost,
+    register,
+  } = useCreateBlog();
 
   return (
     <div className="p-6">
       <h1 className="text-2xl font-bold mb-6">Create Blog Post</h1>
-      <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow p-6">
+      <form onSubmit={handleSubmit(onSubmit)} className="bg-white rounded-lg shadow p-6">
         <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-700 mb-2">
-            Title
-          </label>
+          <label className="block text-sm font-medium text-gray-700 mb-2">Title</label>
           <input
             type="text"
-            value={post.title}
+            {...register('title', { required: 'Title is required' })}
+            value={post.title} // Controlled value
             onChange={(e) => setPost({ ...post, title: e.target.value })}
             className="w-full p-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
             required
           />
+          {errors.title && <span className="text-red-500 text-xs">{errors.title.message}</span>}
         </div>
 
         <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-700 mb-2">
-            Category
-          </label>
+          <label className="block text-sm font-medium text-gray-700 mb-2">Category</label>
           <select
+            {...register('category', { required: 'Category is required' })}
             value={post.category}
             onChange={(e) => setPost({ ...post, category: e.target.value })}
             className="w-full p-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
@@ -47,22 +47,20 @@ export default function BlogEditor() {
             <option value="medical-news">Medical News</option>
             <option value="hospital-updates">Hospital Updates</option>
           </select>
+          {errors.category && <span className="text-red-500 text-xs">{errors.category.message}</span>}
         </div>
 
         <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-700 mb-2">
-            Featured Image URL
-          </label>
+          <label className="block text-sm font-medium text-gray-700 mb-2">Featured Image</label>
           <div className="flex gap-2 items-center">
             <input
-              type="url"
-              value={post.image}
-              onChange={(e) => setPost({ ...post, image: e.target.value })}
+              type="file"
+              accept="image/*"
+              onChange={handleImageChange}
               className="flex-1 p-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
-              placeholder="https://example.com/image.jpg"
             />
-            {post.image && (
-              <img src={post.image} alt="Preview" className="w-16 h-16 rounded-lg border" />
+            {post.imagePreview && (
+              <img src={post.imagePreview} alt="Preview" className="w-16 h-16 rounded-lg border" />
             )}
             <button
               type="button"
@@ -74,23 +72,27 @@ export default function BlogEditor() {
         </div>
 
         <div className="mb-6">
-          <label className="block text-sm font-medium text-gray-700 mb-2">
-            Content
-          </label>
+          <label className="block text-sm font-medium text-gray-700 mb-2">Content</label>
           <textarea
+            {...register('content', { required: 'Content is required' })}
             value={post.content}
             onChange={(e) => setPost({ ...post, content: e.target.value })}
             className="w-full p-2 border rounded-lg h-64 focus:ring-2 focus:ring-blue-500"
             required
           />
+          {errors.content && <span className="text-red-500 text-xs">{errors.content.message}</span>}
         </div>
+
+        {serverError && <div className="text-red-500">{serverError}</div>}
+        {successMessage && <div className="text-green-500">{successMessage}</div>}
 
         <button
           type="submit"
           className="flex items-center justify-center w-full p-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+          disabled={isLoading}
         >
           <Save size={20} className="mr-2" />
-          Save Post
+          {isLoading ? 'Saving...' : 'Save Post'}
         </button>
       </form>
     </div>
