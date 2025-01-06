@@ -91,10 +91,9 @@ const authSlice = createSlice({
                 state.token = token;
                 state.user = user;
                 state.roles = user.roles.map((role) => role.name);
-                state.isAdmin = state.roles.includes("admin");
-                state.isModerator = state.roles.includes("moderator");
-                state.isUser = state.roles.includes("user");
-                state.isCustomer = state.roles.includes("customer");
+                state.isAdmin = state.roles.includes("doctor");
+                state.isModerator = state.roles.includes("admin");
+        
             })
             .addCase(getSessionAsync.rejected, (state) => {
                 state.isLoading = false;

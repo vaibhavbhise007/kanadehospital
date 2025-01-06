@@ -1,11 +1,12 @@
 import React from 'react';
 import { LayoutDashboard, Calendar, Users, FileText, Menu, LogOut } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
+import useLogout from '../../../hooks/Authentication/useLogout ';
 
 export default function Sidebar() {
   const location = useLocation();
   const [isOpen, setIsOpen] = React.useState(true);
-
+  const {handleLogout} =useLogout();
   const menuItems = [
     { icon: LayoutDashboard, label: 'Dashboard', path: '/dashboard' },
     { icon: Calendar, label: 'Appointments', path: '/appointments' },
@@ -49,6 +50,7 @@ export default function Sidebar() {
         <button
           className="flex items-center p-4 w-full text-gray-600 hover:bg-red-50 hover:text-red-600 transition-colors"
           aria-label="Logout"
+          onClick={()=>{handleLogout()}}
         >
           <LogOut size={20} />
           {isOpen && <span className="ml-4">Logout</span>}

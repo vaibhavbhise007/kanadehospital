@@ -28,9 +28,10 @@ export const useEmailVerification = (token) => {
         if (isVerificationSuccessful) {
             // Redirect to login or welcome page after successful verification
             // navigate("/login");
+            // setTimeout(() => navigate("/login"), 3000);
         } else if (serverError) {
             // Handle error case by redirecting or showing a message
-            // navigate("/signup", { state: { message: serverError || "Verification failed" } });
+            // setTimeout(() =>  navigate("/signup", { state: { message: serverError || "Verification failed" } }), 3000);
         }
     }, [isVerificationSuccessful, serverError, navigate]);
 

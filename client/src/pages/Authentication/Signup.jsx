@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Stethoscope, User, Mail, Lock } from 'lucide-react';
+import { Stethoscope, User, Mail, Lock, Phone } from 'lucide-react';
 import useSignupForm from '../../hooks/Authentication/useSignupForm';
 
 export default function SignUp() {
@@ -41,19 +41,36 @@ export default function SignUp() {
           ) : (
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 w-full max-w-sm">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">First Name</label>
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                     <User className="h-5 w-5 text-gray-400" />
                   </div>
                   <input
                     type="text"
-                    {...register('name')}
+                    {...register('userFirstName')}
                     className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
-                    placeholder="John Doe"
+                    placeholder="John"
                     required
                   />
-                  {errors.name && <p className="text-red-500 text-xs">{errors.name.message}</p>}
+                  {errors.name && <p className="text-red-500 text-xs">{errors.userFirstName.message}</p>}
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
+                <div className="relative">
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <User className="h-5 w-5 text-gray-400" />
+                  </div>
+                  <input
+                    type="text"
+                    {...register('userLastName')}
+                    className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                    placeholder="Doe"
+                    required
+                  />
+                  {errors.name && <p className="text-red-500 text-xs">{errors.userLastName.message}</p>}
                 </div>
               </div>
 
@@ -65,15 +82,30 @@ export default function SignUp() {
                   </div>
                   <input
                     type="email"
-                    {...register('email')}
+                    {...register('userEmail')}
                     className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
                     placeholder="admin@hospital.com"
                     required
                   />
-                  {errors.email && <p className="text-red-500 text-xs">{errors.email.message}</p>}
+                  {errors.userEmail  && <p className="text-red-500 text-xs">{errors.userEmail.message}</p>}
                 </div>
               </div>
-
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Mobile</label>
+                <div className="relative">
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <Phone className="h-5 w-5 text-gray-400" />
+                  </div>
+                  <input
+                    type="phone"
+                    {...register('userMobile')}
+                    className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                    placeholder="+91 1234567890"
+                    required
+                  />
+                  {errors.userMobile && <p className="text-red-500 text-xs">{errors.userMobile.message}</p>}
+                </div>
+              </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
                 <div className="relative">
@@ -82,11 +114,11 @@ export default function SignUp() {
                   </div>
                   <input
                     type="password"
-                    {...register('password')}
+                    {...register('userPassword')}
                     className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
                     required
                   />
-                  {errors.password && <p className="text-red-500 text-xs">{errors.password.message}</p>}
+                  {errors.userPassword && <p className="text-red-500 text-xs">{errors.userPassword.message}</p>}
                 </div>
               </div>
 

@@ -26,6 +26,7 @@ export default function useSignupForm() {
         e.preventDefault();
         // setIsFormLoading(true);
         // setError("");
+        // console.log(data);
         setSuccessMessage("");
         const payload = preparePayload(data);
         try {

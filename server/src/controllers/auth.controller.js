@@ -68,7 +68,7 @@ async function signUp(req, res) {
             }
             temporalUser.roles = foundRoles.map((role) => role._id);
         } else {
-            const defaultRole = await Role.findOne({ name: "user" });
+            const defaultRole = await Role.findOne({ name: "doctor" });
             temporalUser.roles = [defaultRole._id];
         }
 
@@ -330,9 +330,11 @@ async function sendResetPasswordEmail(
 
 // Reset the user's password
 async function resetPassword(req, res) {
+    
     try {
         const { newPassword, confirmPassword } = req.body;
-        const token = req.params.token;
+        // const token = req.params.token;
+        const token = req.params.token?.replace(/^:/, ""); // Ensure token is extracted properly
 
         if (!token) { return res.status(403).json({ success: false, message: "No token provided" }); }
 

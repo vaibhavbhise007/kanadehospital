@@ -22,7 +22,7 @@ import AdminBlogPosts from "./pages/Dashboard/AdminBlogPosts";
 import Signup from "./pages/Authentication/Signup";
 import SignIn from "./pages/Authentication/SignIn";
 // import ForgotPassword from "./pages/Authentication/ForgotPassword";
-// import VerifyEmail from "./pages/Authentication/VerifyEmail";
+import EmailVerification from "./pages/Authentication/verification";
 // import ResetPassword from "./pages/Authentication/ResetPassword";
 
 // Layouts  
@@ -39,22 +39,23 @@ import ExpertsList from "./pages/Dashboard/ExpertsList";
 import AppointmentList from "./pages/Dashboard/AppointmentList";
 import BlogEditor from "./pages/Dashboard/BlogEditor";
 
+
 export default function App() {
   const { isLoggedIn, isLoading } = useSession();
   // Show loader until session is fetched
-  if (isLoading) return (
-    <div className="flex bg-black h-screen justify-center items-center">
-      <LoaderWithImage />;
-    </div>
+  // if (isLoading) return (
+  //   <div className="flex bg-black h-screen justify-center items-center">
+  //     <LoaderWithImage />;
+  //   </div>
 
-  );
+  // );
 
 
   // Authentication routes
   const authRoutes = [
     { path: "/login", element: <SignIn /> },
     { path: "/signup", element: <Signup /> },
-    // { path: "/authentication/confirmation/:token", element: <VerifyEmail /> },
+    { path: "/authentication/confirmation/:token", element: <EmailVerification /> },
     // { path: "/forgotpassword", element: <ForgotPassword /> },
     // { path: "/authentication/resetPassword/:token", element: <ResetPassword /> },
   ];

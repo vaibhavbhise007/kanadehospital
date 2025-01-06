@@ -9,6 +9,7 @@ export default function useLogin() {
     const navigate = useNavigate();
     const [Errors, setError] = useState("");
     const [successMessage, setSuccessMessage] = useState("");
+    
     const { isLoading, serverError } = useSelector((state) => state.auth);
 
     const { register, handleSubmit, reset, formState: { errors } } = useForm({ mode: "onBlur" });
@@ -30,12 +31,8 @@ export default function useLogin() {
 
             // Navigate based on roles
             setTimeout(() => {
-                if (response.roles.some((role) => role.name === "admin")) {
+                if (response.roles.some((role) => role.name === "doctor")) {
                     navigate("/dashboard");
-                } else if (response.roles.some((role) => role.name === "user")) {
-                    navigate("/");
-                } else if (response.roles.some((role) => role.name === "customer")) {
-                    navigate("/profile");
                 } else {
                     navigate("/login");
                 }

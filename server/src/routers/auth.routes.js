@@ -18,6 +18,7 @@ const { checkDuplicatedEmail } = require("../middlewares/verifySignUp");
 const { checkIsValidUser } = require("../middlewares/userValidator");
 
 router.post("/signup", [checkDuplicatedEmail, checkIsValidUser], signUp); // Sign-up route
+router.get("/verification/:token", validateEmailToken); // Email verification route
 
 router.post("/login", login); // Login route
 
@@ -28,8 +29,6 @@ router.post("/forgotPassword", sendResetPasswordEmail); // Forgot password route
 router.post("/resetPassword/:token", resetPassword); // Reset password route
 
 router.post("/confirmation", sendConfirmationEmail); // Send confirmation email route
-
-router.get("/verification/:token", validateEmailToken); // Email verification route
 
 router.get("/logout", logout); // Logout route
 
