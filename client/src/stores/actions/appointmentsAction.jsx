@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 export const fetchAppointments = createAsyncThunk('appointments/fetchAppointments', async () => {
-    const response = await fetch('/api/appointments');
+    const response = await fetch('/appointments');
     return response.json();
 });
 

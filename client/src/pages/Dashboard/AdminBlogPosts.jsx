@@ -4,14 +4,14 @@ import { Plus } from 'lucide-react';
 import BlogPostCard from '../../components/admin/BlogPostCard';
 import { useAppSelector } from '../../hooks/useSelector';
 import { useAppDispatch } from '../../hooks/useAppDispatch';
-import { fetchPosts, deletePost } from '../../stores/actions/blogActions';
+// import { fetchPosts, deletePost } from '../../stores/actions/blogActions';
 
 export default function AdminBlogPosts() {
     const dispatch = useAppDispatch();
     const { posts, loading, error } = useAppSelector(state => state.blog);
 
     useEffect(() => {
-        dispatch(fetchPosts());
+        // dispatch(fetchPosts());
     }, [dispatch]);
 
     const handleEdit = (id) => {
@@ -20,7 +20,7 @@ export default function AdminBlogPosts() {
     };
 
     const handleDelete = (id) => {
-        dispatch(deletePost(id));
+        // dispatch(deletePost(id));
     };
 
     if (loading) return <div>Loading...</div>;

@@ -4,10 +4,7 @@ export default function AppointmentForm() {
 
     const [formSubmitted, setFormSubmitted] = useState(false);
 
-    const handleSubmit = (event) => {
-        event.preventDefault(); // Prevent form submission and page reload
-        setFormSubmitted(true); // Set form submission status to true
-    };
+  
     return (
         <section className="bg-[#e6dfdf] py-12 px-4">
             <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
@@ -20,7 +17,7 @@ export default function AppointmentForm() {
                         </div>
 
                     ) : (
-                        <form className="space-y-3" onSubmit={handleSubmit}>
+                        <form className="space-y-3" >
                             <div>
                                 <label htmlFor="name" className="block text-sm  font-medium text-gray-600 r">
                                     Name*
@@ -28,6 +25,8 @@ export default function AppointmentForm() {
                                 <input
                                     type="text"
                                     id="name"
+                                    // value={formSubmitted.name}
+                                    // onChange={handleSubmit}
                                     placeholder="Enter your name"
                                     className="w-full border border-black rounded-lg p-2 mt-1 focus:outline-none focus:ring-1 focus:ring-[rgb(107,71,55)]"
                                     required

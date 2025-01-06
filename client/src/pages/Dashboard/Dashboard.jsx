@@ -51,7 +51,7 @@ export default function AdminDashboard() {
                 </Card>
 
                 <Card className="p-6">
-                    <h2 className="text-xl font-semibold mb-4">Recent Blog Posts</h2>
+                    <h2 className="text-xl font-semibold mb-4"> Blog Posts</h2>
                     <div className="space-y-4">
                         {[
                             { title: "Understanding Piles Treatment", date: "2 days ago", views: "234" },
