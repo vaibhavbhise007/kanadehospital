@@ -38,11 +38,14 @@ import Sidebar from "./components/layouts/Sidebar/Sidebar";
 import ExpertsList from "./pages/Dashboard/ExpertsList";
 import AppointmentList from "./pages/Dashboard/AppointmentList";
 import BlogEditor from "./pages/Dashboard/BlogEditor";
+import Blogsshow from "./pages/Dashboard/Blogsshow";
+import useGetAllBlogs from "./hooks/blog/useGetAllBlogs";
 
 
 
 export default function App() {
   const { isLoggedIn, isLoading } = useSession();
+  const { blogs } = useGetAllBlogs();
   // Show loader until session is fetched
   // if (isLoading) return (
   //   <div className="flex bg-black h-screen justify-center items-center">
@@ -78,6 +81,7 @@ export default function App() {
     { path: "/dashboard", element: <AdminDashboard /> },
     { path: "/appointments", element: <AppointmentList /> },
     { path: "/blogeditor", element: <BlogEditor /> },
+    { path: "/blogshow", element: <Blogsshow /> },
     { path: "/expert", element: <ExpertsList /> },
   ];
 

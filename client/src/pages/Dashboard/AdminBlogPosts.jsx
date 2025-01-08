@@ -27,7 +27,7 @@ export default function AdminBlogPosts() {
     if (error) return <div>Error: {error}</div>;
 
     return (
-        <div className="p-8">
+        <div className="p-8 w-screen">
             <div className="flex justify-between items-center mb-8">
                 <h1 className="text-3xl font-bold text-gray-900">Blog Posts</h1>
                 <Button className="bg-[#C5A572] hover:bg-[#B39362]">

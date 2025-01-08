@@ -37,7 +37,9 @@ export default function AdminDashboard() {
   const latestBlog = blogs && blogs.length > 0 ? blogs[1] : null;
 
   return (
-    <div className="p-6 space-y-8 bg-[#e6dfdf]">
+    // bg-[#e6dfdf]
+    <div className="p-6 space-y-8 bg-white  mt-5">
+      
       <h1 className="text-2xl font-bold mb-4 lg:mb-6 text-center lg:text-left">Dashboard Overview</h1>
 
       {/* Stats Section */}

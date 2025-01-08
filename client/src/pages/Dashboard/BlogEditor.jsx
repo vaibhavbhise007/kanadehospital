@@ -17,7 +17,7 @@ export default function BlogEditor() {
   } = useCreateBlog();
 
   return (
-    <div className="p-6">
+    <div className="p-6 mt-10">
       <h1 className="text-2xl font-bold mb-6">Create Blog Post</h1>
       <form onSubmit={handleSubmit(onSubmit)} className="bg-white rounded-lg shadow p-6">
         <div className="mb-4">

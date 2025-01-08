@@ -18,7 +18,7 @@ export default function Loader() {
     //     style={{ objectFit: "contain" }} />        
     // </div>
 
-    <div>
+    <div className="flex items-center justify-center h-screen">
       <DNA
         visible={true}
         height="100"

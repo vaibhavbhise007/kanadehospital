@@ -69,8 +69,10 @@ const blogSlice = createSlice({
                 state.error = null;
             })
             .addCase(deleteBlog.fulfilled, (state, action) => {
+                // console.)log( action.payload)
+                // console.log(blogs;
                 state.loading = false;
-                state.blogs = state.blogs.filter(blog => blog.id !== action.payload.id);
+                state.blogs = action.payload.blogs
                 state.success = true;
             })
             .addCase(deleteBlog.rejected, (state, action) => {

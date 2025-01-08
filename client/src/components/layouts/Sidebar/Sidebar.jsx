@@ -12,6 +12,7 @@ export default function Sidebar() {
     { icon: Calendar, label: 'Appointments', path: '/appointments' },
     { icon: Users, label: 'Experts', path: '/expert' },
     { icon: FileText, label: 'Blog Posts', path: '/blogeditor' },
+    { icon: FileText, label: 'Blog Show', path: '/blogshow' },
   ];
 
   return (

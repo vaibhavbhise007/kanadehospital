@@ -48,7 +48,7 @@ export const deleteBlog = createAsyncThunk('blog/deleteBlog', async (id, { rejec
     try {
         const { response, json } = await DELETE(`/blogs/${id}`);
         if (response.status === 200) {
-            return { id };
+            return json;
         }
         return rejectWithValue(handleError(json));
     } catch (error) {

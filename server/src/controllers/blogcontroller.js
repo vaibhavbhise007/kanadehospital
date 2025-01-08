@@ -139,8 +139,8 @@ const deleteBlog = async (req, res) => {
     if (!deletedBlog) {
       return res.status(404).json({ error: 'Blog not found' });
     }
-
-    res.status(200).json({ message: 'Blog deleted successfully' });
+    const blogsPost = await Blog.find();
+    res.status(200).json({ message: 'Blog deleted successfully', blogs: blogsPost });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
