@@ -8,6 +8,7 @@
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "dependencies": {
+    "@react-spring/web": "^9.7.5",
     "@reduxjs/toolkit": "^1.9.5",
     "axios": "^1.4.0",
     "cors": "^2.8.5",
