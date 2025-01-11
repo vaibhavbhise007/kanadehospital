@@ -1,7 +1,6 @@
-import { useRef, useEffect, useState } from 'react';
-import { useSprings, animated } from '@react-spring/web';
+import { useState, useEffect, useRef } from 'react';
 
-export const BlurText = ({
+const BlurText = ({
   text = '',
   delay = 200,
   className = '',
@@ -11,28 +10,27 @@ export const BlurText = ({
   rootMargin = '0px',
   animationFrom,
   animationTo,
-  easing = 'easeOutCubic',
+  easing = 'ease-out',
   onAnimationComplete,
 }) => {
   const elements = animateBy === 'words' ? text.split(' ') : text.split('');
   const [inView, setInView] = useState(false);
   const ref = useRef();
-  const animatedCount = useRef(0);
+  const [mounted, setMounted] = useState(false); // Ensure component is mounted before applying transitions
 
-  // Default animations based on direction
-  const defaultFrom = direction === 'top'
-    ? { filter: 'blur(10px)', opacity: 0, transform: 'translate3d(0,-50px,0)' }
-    : { filter: 'blur(10px)', opacity: 0, transform: 'translate3d(0,50px,0)' };
+  const defaultFrom =
+    direction === 'top'
+      ? 'filter blur-sm opacity-0 transform -translate-y-12'
+      : 'filter blur-sm opacity-0 transform translate-y-12';
 
   const defaultTo = [
-    {
-      filter: 'blur(5px)',
-      opacity: 0.5,
-      transform: direction === 'top' ? 'translate3d(0,5px,0)' : 'translate3d(0,-5px,0)',
-    },
-    { filter: 'blur(0px)', opacity: 1, transform: 'translate3d(0,0,0)' },
+    direction === 'top'
+      ? 'filterc text-4xl md:text-5xl font-bold mb-3 leading-tight transform translate-y-1'
+      : 'filter  text-4xl md:text-5xl font-bold mb-3 leading-tight transform -translate-y-1',
+    'filter text-4xl md:text-5xl font-bold mb-3 leading-tight  transform translate-y-0',
   ];
 
+  // Intersection Observer for triggering animation when in view
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -49,39 +47,27 @@ export const BlurText = ({
     return () => observer.disconnect();
   }, [threshold, rootMargin]);
 
-  const springs = useSprings(
-    elements.length,
-    elements.map((_, i) => ({
-      from: animationFrom || defaultFrom,
-      to: inView
-        ? async (next) => {
-            for (const step of (animationTo || defaultTo)) {
-              await next(step);
-            }
-            animatedCount.current += 1;
-            if (animatedCount.current === elements.length && onAnimationComplete) {
-              onAnimationComplete();
-            }
-          }
-        : animationFrom || defaultFrom,
-      delay: i * delay,
-      config: { easing },
-    }))
-  );
+  // Ensure animations only run after component has mounted
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
-    <p ref={ref} className={`blur-text ${className} flex flex-wrap`}>
-      {springs.map((props, index) => (
-        <animated.span
+    <h1 ref={ref} className={` ${className} flex  flex-wrap`}>
+      {elements.map((el, index) => (
+        <span
           key={index}
-          style={props}
-          className="inline-block transition-transform will-change-[transform,filter,opacity]"
+          className={`inline-block transition-all duration-500 ${mounted && inView ? animationTo || defaultTo : animationFrom || defaultFrom}`}
+          style={{
+            transitionDelay: `${index * delay}ms`,
+          }}
         >
-          {elements[index] === ' ' ? ' ' : elements[index]}
+          {el ===' ' ? ' ' : el}
           {animateBy === 'words' && index < elements.length - 1 && ' '}
-        </animated.span>
+        </span>
       ))}
-    </p>
+    </h1>
   );
 };
 
+export default BlurText;

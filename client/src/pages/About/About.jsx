@@ -5,6 +5,7 @@ import firstimg from '../../assets/about1.jpg';
 import d1 from '../../assets/datta kanade.png';
 
 
+
 export default function About() {
     return (
         <div className="bg-white">
@@ -18,24 +19,7 @@ export default function About() {
             </div>
 
 
-            <div className='relative flex flex-col md:flex-row  mt-3 items-center border-1 border-black mb-8 bg-[#e9b294]'>
-
-                <div className="md:w-1/2 px-7 py-8 ">
-                    <h1 className="text-4xl font-bold text-[rgb(107,71,55)] leading-tight">
-                        .<span className="text-black">.</span>
-                    </h1>
-                    <h1 className="text-4xl font-bold text-[rgb(107,71,55)] leading-tight mt-2">
-                       . <span className="text-black">.</span>
-                    </h1>
-                </div>
-                <div className="md:w-1/2 px-6 py-8">
-                    <img
-                        src="" // Replace with your actual image URL
-                        alt="Healthcare team"
-                        className="rounded-md shadow-lg h-[220px] w-[700px]"
-                    />
-                </div>
-            </div>
+            
 
 
             <div className='bg-[#e6dfdf] '>

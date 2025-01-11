@@ -5,7 +5,12 @@ import { useNavigate } from 'react-router-dom';
 import hero from "../../assets/svg/herosection.svg";
 import React, { useEffect, useState } from 'react';
 import textureimg from '../../assets/texture.jpg';
+import BlurText from "../ui/BlurText";
+import ErrorBoundary from '../error/ErrorBoundary';
 
+const handleAnimationComplete = () => {
+    console.log('Animation completed!');
+};
 
 export default function HeroSection() {
     const [isVisible, setIsVisible] = useState(false);
@@ -30,13 +35,22 @@ export default function HeroSection() {
                 <div className="grid md:grid-cols-2 gap-12 items-center">
                     {/* Text Section */}
                     <div
-                        className={`transition-all duration-700 ${
-                            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-                        }`}
+                        className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                            }`}
                     >
-                        <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+                        <ErrorBoundary>
+                        <BlurText
+                            text="Dr. Kanade Hospital & Harmony Laser Clinic"
+                            delay={150}
+                            animateBy="words"
+                            direction="top"
+                            onAnimationComplete={handleAnimationComplete}
+                            className="text-2xl"
+                        />
+                        </ErrorBoundary>
+                        {/* <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
                             Dr. Kanade Hospital & Harmony Laser Clinic
-                        </h1>
+                        </h1> */}
                         <p className="text-lg font-serif mb-8">
                             Experience in various cosmetic gynecology and men's health treatments
                             with minimal recovery time at Dr. Kanade Hospital.
@@ -58,7 +72,7 @@ export default function HeroSection() {
                                 className="relative max-h-[300px] md:max-h-[400px] z-10 rounded-b-xl drop-shadow-md"
                             />
                         </div>
-                      
+
                     </div>
                     <div className="absolute -bottom-0.5 left-8 right-8" style={{ height: '2px', backgroundColor: 'black' }}></div>
 
