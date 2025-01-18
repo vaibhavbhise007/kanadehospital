@@ -4,31 +4,33 @@
 
 @keyframes gradient-colors {
   0% {
-      background-position: 0% 50%;
+    background-position: 0% 50%;
   }
   50% {
-      background-position: 100% 50%;
+    background-position: 100% 50%;
   }
   100% {
-      background-position: 0% 50%;
+    background-position: 0% 50%;
   }
 }
 
 @keyframes move-shape {
-  0%, 100% {
-      transform: translateY(0) translateX(0);
+  0%,
+  100% {
+    transform: translateY(0) translateX(0);
   }
   50% {
-      transform: translateY(-20px) translateX(20px);
+    transform: translateY(-20px) translateX(20px);
   }
 }
 
 @keyframes move-shape-reverse {
-  0%, 100% {
-      transform: translateY(0) translateX(0);
+  0%,
+  100% {
+    transform: translateY(0) translateX(0);
   }
   50% {
-      transform: translateY(20px) translateX(-20px);
+    transform: translateY(20px) translateX(-20px);
   }
 }
 
@@ -44,3 +46,7 @@
 .animate-move-shape-reverse {
   animation: move-shape-reverse 5s infinite ease-in-out;
 }
+
+/* slick-carousel styles */
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";

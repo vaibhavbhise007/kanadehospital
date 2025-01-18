@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import Doctor1 from "../../assets/datta kanade.png"
-import Doctor2 from "../../assets/swati kanade .png"
+import Doctor1 from "../../assets/dattakanade.png";
+import Doctor2 from "../../assets/swatikanade.png";
 const doctorsData = [
   {
     id: 1,
@@ -12,12 +12,10 @@ const doctorsData = [
     experience: [
       "Extensive experience in Cosmetic Gynaecologist & Laparoscopic Surgeon",
       "Obstetrician and NDVH & vNOTE Hysterectomy Expert",
-
-
     ],
     timing: "Monday to Saturday – 11:00 AM - 3:00 PM",
     title: "Gynaecologist",
-    image: "src/assets/datta kanade.png",
+    image: Doctor1,
   },
   {
     id: 2,
@@ -28,11 +26,10 @@ const doctorsData = [
     experience: [
       "Extensive experience in Cosmetic Gynaecologist & Anaesthesiologist",
       "Expert in intensivist",
-
     ],
     timing: "Monday to Friday – 11:00 AM - 3:00 PM",
     title: "Gynaecologist",
-    image: "src/assets/swati kanade .png",
+    image: Doctor2,
   },
 ];
 
@@ -62,7 +59,6 @@ const DoctorProfile = ({ doctor }) => {
           <h1 className="text-xl text-gray-700 font-semibold">
             <span className="text-red-600">Doctors</span> / {doctor.name}
           </h1>
-
 
           <div className="mt-6 space-y-4">
             <div>
@@ -98,9 +94,6 @@ const DoctorProfile = ({ doctor }) => {
           </div>
         </div>
       </div>
-
-
-
     </section>
   );
 };
@@ -113,14 +106,4 @@ export default function Profile() {
   }
 
   return <DoctorProfile doctor={doctor} />;
-
-};
-
-
-
-
-
-
-
-
-
+}
