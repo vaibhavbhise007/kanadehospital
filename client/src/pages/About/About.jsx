@@ -6,7 +6,7 @@ import d1 from "../../assets/dattakanade.png";
 
 export default function About() {
   return (
-    <div className="bg-white">
+    <div className="bg-white pt-16">
       <div className="relative py-16 mb-8 bg-[#e6dfdf]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center text-black">
