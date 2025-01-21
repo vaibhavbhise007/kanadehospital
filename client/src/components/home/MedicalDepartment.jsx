@@ -16,7 +16,7 @@ export default function MedicalDepartment() {
         }}
       ></div>
       <div className="text-center text-4xl font-fira font-bold mb-6 py-6"
-       
+
       >
         Medical Department
       </div>
@@ -29,13 +29,13 @@ export default function MedicalDepartment() {
               <KeyboardDoubleArrowDownIcon />
             </span>
             <h1 className="font-bold text-lg relative z-20 group-hover:text-white transition duration-300">
-              Speciality Department
+              Cosmetic Gynecology
             </h1>
             <p className="relative z-20 mt-2  group-hover:text-white transition duration-300 text-sm">
-              The best-known type of hospital is the hospital, which typically
-              has multiple departments to treat urgent and standard health
-              problems ranging from fire and accident victims to a sudden
-              illness.
+              Cosmetic gynecology enhances the aesthetic and functional aspects of female
+              genitalia through surgical and non-surgical procedures. It helps improve comfort,
+              confidence, and sexual satisfaction for women experiencing issues due to childbirth,
+              aging, or personal preferences.
             </p>
           </div>
         </div>
@@ -46,13 +46,12 @@ export default function MedicalDepartment() {
               <KeyboardDoubleArrowUpIcon />
             </span>
             <h1 className="font-bold text-lg relative z-20 group-hover:text-white transition duration-300">
-              Department 2
+              Obstetrician
             </h1>
             <p className="relative z-20 mt-2 group-hover:text-white transition duration-300 text-sm">
-              The best-known type of hospital is the hospital, which typically
-              has multiple departments to treat urgent and standard health
-              problems ranging from fire and accident victims to a sudden
-              illness.
+              An obstetrician is a doctor specializing in pregnancy, childbirth, and postpartum care.
+              They monitor maternal and fetal health, manage complications, and perform deliveries.
+              Many are also gynecologists, providing comprehensive reproductive care.
             </p>
           </div>
           <img src={Img2} alt="" className="rounded-lg w-full" />
@@ -65,13 +64,13 @@ export default function MedicalDepartment() {
               <KeyboardDoubleArrowDownIcon />
             </span>
             <h1 className="font-bold text-lg relative z-20 group-hover:text-white transition duration-300">
-              Department 3
+              Laparoscopic Surgeon
             </h1>
             <p className="relative z-20 mt-2 group-hover:text-white transition duration-300 text-sm">
-              The best-known type of hospital is the hospital, which typically
-              has multiple departments to treat urgent and standard health
-              problems ranging from fire and accident victims to a sudden
-              illness.
+              A laparoscopic surgeon is a specialist who performs minimally invasive surgeries using a
+              laparoscope a thin, lighted tube with a camera. This technique involves small incisions,
+              reducing pain, scarring, and recovery time. Laparoscopic surgery is commonly used in gynecology,
+              gastroenterology, and general surgery like hernia repair.
             </p>
           </div>
         </div>
@@ -82,13 +81,13 @@ export default function MedicalDepartment() {
               <KeyboardDoubleArrowUpIcon />
             </span>
             <h1 className="font-bold text-lg relative z-20 group-hover:text-white transition duration-300">
-              Department 4
+              Anesthesiologist
             </h1>
             <p className="relative z-20 mt-2 group-hover:text-white transition duration-300 text-sm">
-              The best-known type of hospital is the hospital, which typically
-              has multiple departments to treat urgent and standard health
-              problems ranging from fire and accident victims to a sudden
-              illness.
+              An anesthesiologist is a medical doctor specializing in administering anesthesia to
+              manage pain and ensure patient safety during surgeries and medical procedures.
+              They monitor vital signs, adjust anesthesia levels, and provide pain relief before,
+              during, and after operations.
             </p>
           </div>
           <img src={Img4} alt="" className="rounded-lg w-full" />
