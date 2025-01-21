@@ -15,7 +15,9 @@ export default function MedicalDepartment() {
           backgroundImage: `url(${backgroundImage1})`,
         }}
       ></div>
-      <div className="text-center text-5xl font-bold mb-6 py-6">
+      <div className="text-center text-4xl font-fira font-bold mb-6 py-6"
+       
+      >
         Medical Department
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">

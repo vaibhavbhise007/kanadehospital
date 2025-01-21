@@ -6,6 +6,9 @@ export default {
   theme: {
     extend: {
       // Add custom configurations if needed
+      fontFamily: {
+        fira: ["'Fira Sans Condensed'", "sans-serif"],
+      },
     },
   },
   plugins: [

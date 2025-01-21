@@ -45,9 +45,9 @@ function OurServices() {
     };
 
     return (
-        <section className="relative max-w-7xl py-14 mx-auto px-4 lg:px-8 mt-14">
+        <section className="relative max-w-7xl py-10 mx-auto px-4 lg:px-8 mt-14">
             <div
-                className="absolute inset-0 bg-cover bg-center -z-10"
+                className="absolute  inset-0 bg-cover -z-10"
                 style={{
                     backgroundImage: `url(${textureimg})`,
                     opacity: 0.2,
@@ -55,8 +55,8 @@ function OurServices() {
             ></div>
 
             <div className="relative z-10">
-                <div className="text-center mb-14">
-                    <h1 className="text-4xl font-bold text-gray-900">
+                <div className="text-center mb-10">
+                    <h1 className="text-4xl font-fira font-bold text-gray-900">
                         Treatments Available At Kanade Hospital
                     </h1>
                 </div>
@@ -66,7 +66,7 @@ function OurServices() {
                     {services.map((service) => (
                         <div
                             key={service.id}
-                            className="relative bg-white shadow-lg rounded-lg border-2 border-black overflow-hidden transition-transform transform hover:scale-105"
+                            className="relative bg-white shadow-lg  hover:border-2 border-black overflow-hidden transition-transform transform hover:scale-105"
                         >
                             <img
                                 src={service.image}
