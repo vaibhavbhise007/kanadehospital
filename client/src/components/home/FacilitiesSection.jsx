@@ -1,5 +1,5 @@
 import React from 'react';
-import bg from '../../assets/texture3.jpg';
+import bg from '../../assets/texture.jpg';
 import f1 from '../../assets/f1.jpg';
 import f2 from '../../assets/f2.jpg';
 import f3 from '../../assets/f3.jpg';
@@ -9,7 +9,7 @@ import f6 from '../../assets/f6.jpg';
 
 function FacilitiesSection() {
   return (
-    <section className='relative max-w-7xl mx-auto px-4 lg:px-8 '>
+    <section className='relative px-4 lg:px-8'>
       <div
         className="absolute inset-0 bg-cover bg-center -z-10"
         style={{
@@ -17,7 +17,7 @@ function FacilitiesSection() {
           opacity: 0.2,
         }}
       ></div>
-      <div className="text-center py-14">
+      <div className="text-center py-4 ">
         <h1 className="text-4xl font-bold text-gray-900 py-4">
           Amenities In Kanade Hospital
         </h1>
@@ -29,7 +29,7 @@ function FacilitiesSection() {
       </div>
 
       {/* Main Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-2 px-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 px-8 pb-8">
         
         {/* Facility 1 */}
         <div className="bg-white hover:shadow-xl p-6 flex flex-col sm:flex-row items-center sm:space-x-4 sm:space-y-0 border-1 border-black transition-transform transform hover:scale-105">

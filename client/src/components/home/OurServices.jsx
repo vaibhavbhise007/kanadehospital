@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from '../ui/Button';
 import s1 from '../../assets/services/s1.jpg';
@@ -45,12 +44,12 @@ function OurServices() {
     };
 
     return (
-        <section className="relative max-w-7xl py-10 mx-auto px-4 lg:px-8 mt-14">
+        <section className="relative py-8  px-4 lg:px-8">
             <div
-                className="absolute  inset-0 bg-cover -z-10"
+                className="absolute inset-0 bg-cover -z-10"
                 style={{
                     backgroundImage: `url(${textureimg})`,
-                    opacity: 0.2,
+                    opacity: 0.3, // Increased opacity for better visibility of background
                 }}
             ></div>
 
@@ -62,11 +61,11 @@ function OurServices() {
                 </div>
 
                 {/* Grid Layout for Desktop */}
-                <div className="hidden sm:grid grid-cols-2 lg:grid-cols-4 gap-5">
+                <div className="hidden sm:grid grid-cols-2 lg:grid-cols-4 gap-5 px-8">
                     {services.map((service) => (
                         <div
                             key={service.id}
-                            className="relative bg-white shadow-lg  hover:border-2 border-black overflow-hidden transition-transform transform hover:scale-105"
+                            className="relative bg-blue-100 shadow-lg hover:border-2 border-black overflow-hidden transition-transform transform hover:scale-105"
                         >
                             <img
                                 src={service.image}
@@ -95,14 +94,13 @@ function OurServices() {
                                 }`}
                             >
                                 <p className="text-black text-xl font-semibold">
-                                        {service.title}
-                                    </p>
+                                    {service.title}
+                                </p>
                                 <img
                                     src={service.image}
                                     alt={service.title}
                                     className="block w-full h-full object-cover"
                                 />
-                                
                             </div>
                         ))}
                     </div>
@@ -158,7 +156,7 @@ function OurServices() {
                                 xmlns="http://www.w3.org/2000/svg"
                                 fill="none"
                                 viewBox="0 0 6 10"
-                                >
+                            >
                                 <path
                                     stroke="currentColor"
                                     strokeLinecap="round"
