@@ -16,7 +16,7 @@ export default function Sidebar() {
   ];
 
   return (
-    <div className={`bg-white h-screen shadow-lg ${isOpen ? 'w-64' : 'w-20'} transition-all duration-300`}>
+    <div className={`bg-gray-400 h-screen shadow-lg ${isOpen ? 'w-64' : 'w-20'} transition-all duration-300 lg:block hidden `}>
       <div className="p-4 flex items-center justify-between">
         {isOpen && <h2 className="text-xl font-bold text-blue-600">Hospital Admin</h2>}
         <button
@@ -33,7 +33,7 @@ export default function Sidebar() {
             key={item.path}
             to={item.path}
             className={`flex items-center p-4 ${
-              location.pathname === item.path ? 'bg-blue-50 text-blue-600' : 'text-gray-600'
+              location.pathname === item.path ? 'bg-blue-50 text-[rgb(107,71,55)]' : 'text-gray-600'
             } hover:bg-blue-50 transition-colors`}
             aria-label={item.label}
           >
@@ -49,7 +49,7 @@ export default function Sidebar() {
       </nav>
       <div className="absolute bottom-4 w-full">
         <button
-          className="flex items-center p-4 w-full text-gray-600 hover:bg-red-50 hover:text-red-600 transition-colors"
+          className="flex items-center p-4 w-64 text-gray-600 hover:bg-red-50 hover:text-red-600 transition-colors"
           aria-label="Logout"
           onClick={()=>{handleLogout()}}
         >

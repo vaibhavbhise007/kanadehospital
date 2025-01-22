@@ -3,10 +3,32 @@ import { Card } from "../../components/ui/Card";
 import { Button } from "../../components/ui/Button";
 import firstimg from "../../assets/about1.jpg";
 import d1 from "../../assets/dattakanade.png";
+import Loader from '../../components/Loader/Loader.jsx';
+import React,{useEffect,useState} from "react";
 
 export default function About() {
+
+   const [loading, setLoading] = useState(true);
+  
+    useEffect(() => {
+      const handleLoadComplete = () => setLoading(false);
+      const timer = setTimeout(handleLoadComplete, 1000); // Simulate loading time
+  
+      return () => clearTimeout(timer); // Cleanup
+    }, []);
+
   return (
+    <div className="flex flex-col">
+    {loading ? (
+      <div className="flex justify-center items-center bg-white h-screen ">
+        <Loader />{" "}
+      </div>
+    ) : (
+      
+   
+
     <div className="bg-white pt-16">
+      
       <div className="relative py-16 mb-8 bg-[#e6dfdf]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center text-black">
@@ -178,5 +200,8 @@ export default function About() {
         </div>
       </div>
     </div>
+    
+  )}
+  </div>
   );
 }

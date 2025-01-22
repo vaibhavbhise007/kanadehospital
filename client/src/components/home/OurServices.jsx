@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button } from '../ui/Button';
 import s1 from '../../assets/services/s1.jpg';
 import s2 from '../../assets/services/s2.jpg';
-import s3 from '../../assets/services/s3.webp';
+import s3 from '../../assets/services/s3.jpg';
 import s4 from '../../assets/services/s4.jpg';
 import s5 from '../../assets/services/s5.jpg';
 import s6 from '../../assets/services/s6.jpg';
