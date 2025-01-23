@@ -64,18 +64,13 @@ function TreatmentsPage() {
                         <p className="text-gray-600  text-lg font-serif mt-2">{treatment.about}</p>
                         <h2 className="text-2xl font-bold text-black">Overview: What is <span>{treatment.title}</span>?</h2>
                         <p className="text-gray-600  text-lg font-serif">
-                            {treatment.description.split(".\n").map((line, index) => (
-                                <React.Fragment key={index}>
-                                    {line}
-                                    <br />
-                                </React.Fragment>
-                            ))}</p>
+                            {treatment.description}</p>
                         <h2 className="text-2xl font-bold text-black">Causes And Risk Factors</h2>
-                        <p className="text-gray-600  text-lg font-serif">{treatment.keypoints}</p>
+                        <p className="text-gray-600  text-lg font-serif">{treatment.causes}</p>
                         <h2 className="text-2xl font-bold text-black">Symptoms of <span>{treatment.title}</span></h2>
-                        <p></p>
+                        <p className="text-gray-600  text-lg font-serif">{treatment.symptoms}</p>
                         <h2 className="text-2xl font-bold text-black">Treatment Details</h2>
-                        <p></p>
+                        <p className="text-gray-600  text-lg font-serif">{treatment.treatmentdetails}</p>
                         {/* <p className="text-gray-600 font-serif mt-4">{treatment.keypoints}</p> */}
                     </div>
                     <div className="flex justify-center">
