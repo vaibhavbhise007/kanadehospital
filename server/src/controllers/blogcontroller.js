@@ -10,20 +10,24 @@ const createBlog = async (req, res) => {
     if (findBlog) {
       return res.status(400).json({ error: 'Blog title already exists' });
     }
-
     let imageUrl = null;
-    let imageid = null;
-    if (req.file) {
-      const imageUploaded = await cloudinary.v2.uploader.upload(req.file.path);
-      imageUrl = imageUploaded.secure_url;
-      imageid = imageUploaded.public_id
-    }
+    let imageId = null;
+    // Assuming `req.files.img` is an array of uploaded files
+if (req.files && req.files.img && req.files.img.length > 0) {
+
+  // Iterate over the array of files and upload each one
+  for (const file of req.files.img) {
+    const imageUploaded = await cloudinary.v2.uploader.upload(file.path);
+      imageUrl=imageUploaded.secure_url;
+      imageId= imageUploaded.public_id;
+  }
+}
 
     const blog = new Blog({
       title,
       category,
       img: imageUrl,
-      img_id: imageid,
+      img_id: imageId,
       content,
       author: author || 'Admin', // Default to 'Admin' if not provided
     });
