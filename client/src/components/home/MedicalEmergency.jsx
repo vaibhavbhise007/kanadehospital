@@ -4,7 +4,7 @@ import Image2 from "../../assets/EmergencyImage2.jpg";
 
 export default function MedicalEmergency() {
   return (
-    <section className="relative p-6 md:p-10 bg-gradient-to-r from-white to-[rgb(107,71,55)]-500/50 pb-20">
+    <section className="relative md:p-10 ">
       {/* Background Image */}
       <div
         className="absolute opacity-30 inset-0 bg-cover -z-10"

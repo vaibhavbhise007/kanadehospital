@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom';
 import Loader from '../components/Loader/Loader';
 import Sidebar from '../components/layouts/Sidebar/Sidebar';
 import AdminNavbar from '../components/layouts/Navbar/AdminNavbar';
-
+import backgroundImage1 from '../assets/bgdoctor.jpg';
 const AdminLayout = () => {
     const [loading, setLoading] = useState(true);
 
@@ -27,7 +27,13 @@ const AdminLayout = () => {
                 </div>
 
                 {/* Main Section */}
-                <main className="flex-1 overflow-y-auto p-4 pt-16"> {/* Add padding-top to avoid overlap with navbar */}
+                <main className="flex-1 overflow-y-auto p-4 pt-20"> {/* Add padding-top to avoid overlap with navbar */}
+                    <div
+                        className="absolute opacity-100 inset-0 bg-cover -z-10"
+                        style={{
+                            backgroundImage: `url(${backgroundImage1})`,
+                        }}
+                    ></div>
                     {loading ? (
                         <div className="flex justify-center items-center h-full">
                             <Loader />

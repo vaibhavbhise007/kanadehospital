@@ -27,7 +27,7 @@ export default function OurSpecialists() {
   ];
 
   return (
-    <div className="relative   py-14">
+    <div className="relative py-8">
       <div
         className="absolute inset-0 -z-50 bg-cover"
         style={{

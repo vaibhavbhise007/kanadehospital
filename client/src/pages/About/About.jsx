@@ -1,4 +1,5 @@
 import { Award, Users, Heart, Target, Globe } from "lucide-react";
+<<<<<<< HEAD
 import { useNavigate } from "react-router-dom";
 import backgroundImage1 from "../../assets/AboutsUsBackgroundImage.jpg";
 import DoctorPhoto from "../../assets/DoctorPhoto.png";
@@ -53,6 +54,48 @@ export default function About() {
                 </p>
               </div>
             </div>
+=======
+import { Card } from "../../components/ui/Card";
+import { Button } from "../../components/ui/Button";
+import firstimg from "../../assets/about1.jpg";
+import d1 from "../../assets/dattakanade.png";
+import Loader from '../../components/Loader/Loader.jsx';
+import React,{useEffect,useState} from "react";
+
+export default function About() {
+
+   const [loading, setLoading] = useState(true);
+  
+    useEffect(() => {
+      const handleLoadComplete = () => setLoading(false);
+      const timer = setTimeout(handleLoadComplete, 1000); // Simulate loading time
+  
+      return () => clearTimeout(timer); // Cleanup
+    }, []);
+
+  return (
+    <div className="flex flex-col">
+    {loading ? (
+      <div className="flex justify-center items-center bg-white h-screen ">
+        <Loader />{" "}
+      </div>
+    ) : (
+      
+   
+
+    <div className="bg-white pt-16">
+      
+      <div className="relative py-16 mb-8 bg-[#e6dfdf]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center text-black">
+            <h1 className="text-4xl font-bold mb-4">
+              About Dr. Kanade Hospital
+            </h1>
+            <p className="text-lg font-serif text-gray-600">
+              Leading the way in advanced Laser surgery for piles, fistulas,
+              fissures, varicose veins, and more.{" "}
+            </p>
+>>>>>>> 7e263f59c2f3ea830486e628567f8608125cd95a
           </div>
         </div>
 
@@ -171,7 +214,60 @@ export default function About() {
       </div> */}
         <ProfileSlider />
       </div>
+<<<<<<< HEAD
       <OurSpecialists />
     </>
+=======
+      <div className="bg-gray-50 rounded-lg p-8">
+        <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
+          Our Team
+        </h2>
+        <div className="grid md:grid-cols-3 gap-8">
+          {[
+            {
+              name: "Dr. Datta Kanade",
+              discription: "(M.B.B.S, D.G.O)",
+              role: "Cosmetic Gynaecologist",
+
+              image: "src/assets/datta kanade.png",
+            },
+            {
+              name: "Dr. Swati Kanade",
+              role: "Cosmetic Gynaecologist",
+              discription: "(M.B.B.S, D.A)",
+              image: "src/assets/swati kanade .png",
+            },
+            {
+              name: "Dr. Rajesh Patel",
+              role: "Specialist",
+              image:
+                "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=300",
+            },
+          ].map((member, index) => (
+            <Card
+              key={index}
+              className="p-6 text-center hover:shadow-2xl transition-shadow"
+            >
+              <img
+                src={member.image}
+                alt={member.name}
+                className="w-32 h-32 rounded-full mx-auto mb-4  bg-slate-400"
+              />
+              <h3 className="text-xl font-serif text-gray-900">
+                {member.name}
+              </h3>
+              <p className="text-gray-600 font-serif">{member.role}</p>
+              <Button className="bg-[rgb(107,71,55)] hover:bg-[#B39362] text-white w-full h-8 mt-2">
+                View Profile
+              </Button>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </div>
+    
+  )}
+  </div>
+>>>>>>> 7e263f59c2f3ea830486e628567f8608125cd95a
   );
 }
