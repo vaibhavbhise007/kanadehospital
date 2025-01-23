@@ -14,15 +14,15 @@ export default function Navbar() {
   return (
     <nav className="bg-white fixed z-50 w-full shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
+        <div className="flex justify-between h-28">
           <div className="flex">
             <Link
               to="/"
               className="flex items-center"
               onClick={handleLinkClick}
             >
-              <img src={logo} className="h-10 w-10" alt="Logo" />
-              <span className="ml-2 text-xl font-bold text-gray-800">
+              <img src={logo} className="h-20 w-20" alt="Logo" />
+              <span className="ml-2 text-2xl font-bold text-gray-800">
                 Dr. Kanade Hospital
               </span>
             </Link>

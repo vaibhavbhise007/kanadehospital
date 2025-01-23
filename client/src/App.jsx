@@ -40,6 +40,7 @@ import AppointmentList from "./pages/Dashboard/AppointmentList";
 import BlogEditor from "./pages/Dashboard/BlogEditor";
 import Blogsshow from "./pages/Dashboard/Blogsshow";
 import useGetAllBlogs from "./hooks/blog/useGetAllBlogs";
+import TreatmentsPage from "./pages/Treatments/TreatmentsPage";
 
 
 
@@ -69,6 +70,7 @@ export default function App() {
     { path: "/", element: <Home /> },
     { path: "/about", element: <About /> },
     { path: "/treatments", element: <Treatments /> },
+    { path: "/treatments/:treatmentId", element: <TreatmentsPage /> },
     { path: "/contact", element: <Contact /> },
     { path: "/blog", element: <Blog /> },
     { path: "/appointment", element: <Appointment /> },
