@@ -1,9 +1,4 @@
-<<<<<<< HEAD
 import { Target, Globe } from "lucide-react";
-=======
-import { Award, Users, Heart, Target, Globe } from "lucide-react";
-import { useNavigate } from "react-router-dom";
->>>>>>> 1a4c11f46b8a00ccd9ab244d6f54a585835101ea
 import backgroundImage1 from "../../assets/AboutsUsBackgroundImage.jpg";
 import DoctorPhoto from "../../assets/DoctorPhoto.png";
 import OurSpecialists from "../../components/home/OurSpecialists";

@@ -6,16 +6,22 @@ const path = require("path");
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     // Ensure the uploads folder exists before attempting to create it.
+    console.log(req.originalUrl)
+    const { id } = req.params;
     try {
       let uploadPath = "";
-      if (req. originalUrl==='/api/blogs/') {
+      if (req.originalUrl === '/api/blogs/') {
         uploadPath = "src/storage/upload/image/blogs/";
-      }
-      if(req. originalUrl==='api/treatments/') 
-        uploadPath = "src/storage/upload/image/treatment/";
-      else {
-        uploadPath = "src/storage/upload/image/profilePicture/";
-      }
+      } else
+        if (req.originalUrl === '/api/treatments/') {
+          uploadPath = "src/storage/upload/image/treatment/";
+        } else
+          if (req.originalUrl === `/api/treatments/${id}`) {
+            uploadPath = "src/storage/upload/image/treatment/";
+          }
+          else {
+            uploadPath = "src/storage/upload/image/profilePicture/";
+          }
       // Check if the upload path exists, if not, create it
       if (!fs.existsSync(uploadPath)) {
         fs.mkdirSync(uploadPath); // Ensure the uploads folder exists

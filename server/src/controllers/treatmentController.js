@@ -4,7 +4,7 @@ const { cloudinary } = require("../configs/cloudinary");
 // Create a new treatment
 const createTreatment = async (req, res) => {
   try {
-    const { title, about,description, causes, symptoms,treatmentdetails } = req.body;
+    const { title, about, description, causes, symptoms, treatmentdetails } = req.body;
     const findTreatment = await Treatment.findOne({ title });
     if (findTreatment) {
       return res.status(400).json({ message: "Treatment already exists" });
@@ -13,15 +13,16 @@ const createTreatment = async (req, res) => {
     let imageUrl = null;
     let imageId = null;
     // Assuming `req.files.img` is an array of uploaded files
-if (req.files && req.files.img && req.files.img.length > 0) {
+    if (req.files && req.files.img && req.files.img.length > 0) {
 
-  // Iterate over the array of files and upload each one
-  for (const file of req.files.img) {
-    const imageUploaded = await cloudinary.v2.uploader.upload(file.path);
-      imageUrl=imageUploaded.secure_url;
-      imageId= imageUploaded.public_id;
-  }
-}
+      // Iterate over the array of files and upload each one
+      for (const file of req.files.img) {
+        const imageUploaded = await cloudinary.v2.uploader.upload(file.path);
+        imageUrl = imageUploaded.secure_url;
+        imageId = imageUploaded.public_id;
+      }
+    }
+
     const treatment = new Treatment({
       title,
       about,
