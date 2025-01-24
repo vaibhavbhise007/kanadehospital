@@ -5,6 +5,9 @@ import { Button } from "../../components/ui/Button";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { fetchTreatments } from "../../stores/actions/treatmentAction";
 import Loader from "../../components/Loader/Loader";
+import { NavLink } from "react-router-dom";
+
+
 
 
 export default function Treatments() {
@@ -36,7 +39,7 @@ export default function Treatments() {
         </div>
       ) : (
 
-        <div className="bg-white pt-16">
+        <div className="bg-white pt-24">
           <div className="relative py-16 bg-[#e6dfdf]">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="text-center text-black">
@@ -61,6 +64,7 @@ export default function Treatments() {
             {!loading && !error && treatments.length > 0 && (
               <div className="grid md:grid-cols-4 gap-4 lg:px-10 mb-8">
                 {treatments.map((treatment, index) => (
+                  
                   <Card key={index} className="overflow-hidden  hover:shadow-2xl rounded-sm transition-transform hover:scale-105 px-2 py-2">
                     <img
                       src={treatment.img || "https://via.placeholder.com/800x400"} // Default image if none provided
@@ -71,10 +75,12 @@ export default function Treatments() {
                       <h2 className="text-xl font-bold flex justify-center   text-gray-900 mb-4">
                         {treatment.title}
                       </h2>
-                      <p className="text-gray-600   font-serif  text-sm mb-4">
-                        {treatment.description}
+                      <p className="text-gray-600   font-serif  text-sm mb-">
+                        {treatment.about}
                       </p>
-
+                      <NavLink to={`/treatments/${treatment._id}`}
+                          className={'border-1 border-black text-white flex justify-center bg-[rgb(107,71,55)] rounded-md hover:text-black'}
+                      >Read More</NavLink>
 
                     </div>
                   </Card>

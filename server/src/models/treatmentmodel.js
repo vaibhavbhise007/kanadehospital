@@ -11,11 +11,19 @@ const treatmentSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  keypoints: {
-    type: [String],
+  description: {
+    type: String,
     required: true
   },
-  description: {
+  causes: {
+    type: String,
+    required: true
+  },
+  symptoms: {
+    type: String,
+    required: true
+  },
+  treatmentdetails: {
     type: String,
     required: true
   },

@@ -4,7 +4,7 @@ const { cloudinary } = require("../configs/cloudinary");
 // Create a new treatment
 const createTreatment = async (req, res) => {
   try {
-    const { title, about, keypoints, description } = req.body;
+    const { title, about,description, causes, symptoms,treatmentdetails } = req.body;
     const findTreatment = await Treatment.findOne({ title });
     if (findTreatment) {
       return res.status(400).json({ message: "Treatment already exists" });
@@ -25,8 +25,10 @@ if (req.files && req.files.img && req.files.img.length > 0) {
     const treatment = new Treatment({
       title,
       about,
-      keypoints,
       description,
+      causes,
+      symptoms,
+      treatmentdetails,
       img: imageUrl,
       img_id: imageId,
     });
@@ -90,8 +92,10 @@ const updateTreatment = async (req, res) => {
 
     treatment.title = updates.title || treatment.title;
     treatment.about = updates.about || treatment.about;
-    treatment.keypoints = updates.keypoints || treatment.keypoints;
     treatment.description = updates.description || treatment.description;
+    treatment.causes = updates.causes || treatment.causes;
+    treatment.symptoms = updates.symptoms || treatment.symptoms;
+    treatment.treatmentdetails = updates.treatmentdetails || treatment.treatmentdetails;
     treatment.img = imageUrl;
     treatment.img_id = imageId;
 
