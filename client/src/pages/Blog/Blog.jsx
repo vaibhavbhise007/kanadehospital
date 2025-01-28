@@ -30,32 +30,6 @@ export default function Blog() {
               </p>
             </div>
           </div>
-<<<<<<< HEAD
-=======
-
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            {loading && <p className="text-center text-gray-600">Loading...</p>}
-            {error && <p className="text-center text-red-500">Error: {error}</p>}
-
-            {!loading && !error && blogs.length === 0 && (
-              <p className="text-center text-gray-600">No blog posts available.</p>
-            )}
-
-            {!loading && !error && blogs.length > 0 && (
-              <div className="grid md:grid-cols-2  gap-8">
-                {blogs.map((blog) => (
-                  <BlogCard
-                    
-                    imageSrc={blog.img}
-                    title={blog.title}
-                    about={blog.about}
-                    readMorePath={`/blog/${blog._id}`}
-                  />
-                ))}
-              </div>
-            )}
-          </div>
->>>>>>> 33b70e04bd32281e7e145fc3a2b59eb5ce11c890
         </div>
       </div>
 

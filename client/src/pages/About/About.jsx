@@ -20,36 +20,16 @@ export default function About() {
     slidesToScroll: 1,
   };
 
-  const features = [
-    {
-      title: "World Class Doctors",
-      description:
-        "Our dedicated team of skilled healthcare professionals stays current on the latest medical advancements and utilizes cutting-edge technologies to ensure the highest quality care for our patients.",
-      iconClass: "top-[-80px] left-[110px]",
-      bgClass: "bg-[#c07e7e]",
-    },
-    {
-      title: "Advance Technology",
-      description:
-        "Our commitment to technological advancement ensures that we are always at the forefront of medical innovative medical technology, which allows us to provide more accurate diagnoses, more effective treatments, and a more personalized patient experience.",
-      iconClass: "top-[-80px] left-[110px]",
-      bgClass: "bg-[#c07e7e]",
-    },
-    {
-      title: "Patient Centric approach",
-      description:
-        "Committed to patient-centered care, we tailor our approach to individual needs, emphasizing open communication and collaboration between patients and healthcare providers for optimal health outcomes.",
-      iconClass: "top-[-80px] left-[110px]",
-      bgClass: "bg-[#c07e7e]",
-    },
-  ];
-
   return (
     <>
       <div className="bg-white">
-        <div className="bg-white pt-16 relative">
-          <img src={backgroundImage2} className="absolute" alt="" />
-          <div className="py-16 mb-8 bg-[#e6dfdf]">
+        <div className="bg-[rgb(107,71,55)] bg-opacity-80 pt-16 relative">
+          <div
+            className="py-16 mb-8 opacity-80 bg-opacity-45 bg-cover -z-0 "
+            style={{
+              backgroundImage: `url(${backgroundImage2})`,
+            }}
+          >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="text-center text-black">
                 <h1 className="text-3xl sm:text-4xl font-bold mb-4">
