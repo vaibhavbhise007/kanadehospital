@@ -5,7 +5,7 @@ const { cloudinary } = require("../configs/cloudinary");
 // Create a new blog post
 const createBlog = async (req, res) => {
   try {
-    const { title, category, content, author } = req.body;
+    const { title, about, subtitle1,about1,subtitle2, about2,subtitle3,about3,author } = req.body;
     const findBlog = await Blog.findOne({ title: title });
     if (findBlog) {
       return res.status(400).json({ error: 'Blog title already exists' });
@@ -25,10 +25,15 @@ if (req.files && req.files.img && req.files.img.length > 0) {
 
     const blog = new Blog({
       title,
-      category,
+      about,
+      subtitle1,
+      about1,
+      subtitle2,
+      about2,
+      subtitle3,
+      about3,
       img: imageUrl,
       img_id: imageId,
-      content,
       author: author || 'Admin', // Default to 'Admin' if not provided
     });
 
@@ -91,7 +96,7 @@ const getBlogById = async (req, res) => {
 const updateBlog = async (req, res) => {
   try {
     const { id } = req.params;
-    const { title, category, content, author } = req.body;
+    const { title, about, subtitle1,about1,subtitle2, about2,subtitle3,about3,author } = req.body;
 
     const blog = await Blog.findById(id);
     if (!blog) {
@@ -119,8 +124,13 @@ const updateBlog = async (req, res) => {
     }
 
     blog.title = title || blog.title;
-    blog.category = category || blog.category;
-    blog.content = content || blog.content;
+    blog.about = about || blog.about;
+    blog.subtitle1 = subtitle1 || blog.subtitle1;
+    blog.about1 = about1 || blog.about1;
+    blog.subtitle2 = subtitle2 || blog.subtitle2;
+    blog.about2 = about2 || blog.about2;
+    blog.subtitle3 = subtitle3 || blog.subtitle3;
+    blog.about3 = about3 || blog.about3;
     blog.author = author || blog.author;
     blog.img = imageUrl;
     blog.img_id = imageid;
