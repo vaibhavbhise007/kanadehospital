@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchTreatments } from "../../stores/actions/treatmentAction";
 import Loader from "../../components/Loader/Loader";
 import TreatmentCard from "../../components/ui/TreatmentCard";
+import Skeleton from "react-loading-skeleton"; // Import Skeleton component
+import "react-loading-skeleton/dist/skeleton.css"; // Import skeleton styles
 
 export default function Treatments() {
   const dispatch = useDispatch();
@@ -15,15 +17,6 @@ export default function Treatments() {
   useEffect(() => {
     dispatch(fetchTreatments());
   }, [dispatch]);
-
-  const [xloading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const handleLoadComplete = () => setLoading(false);
-    const timer = setTimeout(handleLoadComplete, 1000); // Simulate loading time
-
-    return () => clearTimeout(timer); // Cleanup
-  }, []);
 
   return (
     <div className="flex flex-col">
@@ -40,19 +33,30 @@ export default function Treatments() {
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          {loading && <p className="text-center text-gray-600">Loading...</p>}
-          {error && <p className="text-center text-red-500">{error}</p>}
-
-          {!loading && !error && treatments.length === 0 && (
+          {loading ? (
+            // Skeleton Loader when content is still loading
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 sm:grid-cols-1 gap-8">
+              {Array(6)
+                .fill()
+                .map((_, index) => (
+                  <div key={index} className="flex flex-col items-center">
+                    <Skeleton height={200} width={300} />
+                    <Skeleton height={30} width={200} className="mt-4" />
+                    <Skeleton height={15} width={250} className="mt-2" />
+                  </div>
+                ))}
+            </div>
+          ) : error ? (
+            <p className="text-center text-red-500">{error}</p>
+          ) : treatments.length === 0 ? (
             <p className="text-center text-gray-600">
               No treatments available at the moment.
             </p>
-          )}
-
-          {!loading && !error && treatments.length > 0 && (
+          ) : (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 sm:grid-cols-1 gap-8">
               {treatments.map((treatment, index) => (
                 <TreatmentCard
+                  key={index}
                   imageSrc={treatment.img}
                   title={treatment.title}
                   description={treatment.about}

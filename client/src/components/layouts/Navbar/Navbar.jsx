@@ -16,8 +16,6 @@ export default function Navbar() {
     { to: "/contact", label: "Contact" },
   ];
 
-  const activeClassName = "text-[rgb(209,124,91)] font-semibold";
-
   const handleLinkClick = () => {
     setIsOpen(false); // Close the menu
     window.scrollTo({ top: 0, behavior: "smooth" }); // Scroll to top
@@ -40,7 +38,7 @@ export default function Navbar() {
               onClick={handleLinkClick}
               className={({ isActive }) =>
                 `text-black hover:text-[rgb(107,71,55)] font-medium px-3 py-2 ${
-                  isActive ? activeClassName : ""
+                  isActive ? "text-orange-700 font-semibold" : ""
                 }`
               }
             >
@@ -73,7 +71,7 @@ export default function Navbar() {
               onClick={handleLinkClick}
               className={({ isActive }) =>
                 `block text-gray-700 hover:text-[#C5A572] px-3 py-2 rounded-md ${
-                  isActive ? activeClassName : ""
+                  isActive ? "text-[rgb(209,124,91)] font-semibold" : ""
                 }`
               }
             >

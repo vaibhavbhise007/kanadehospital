@@ -22,7 +22,7 @@ const treatmentSlice = createSlice({
         state.treatments = action.payload;
       })
       .addCase(fetchTreatments.rejected, (state, action) => {
-        state.loading = false;
+        state.loading = true;
         state.error = action.error.message;
       });
   },
