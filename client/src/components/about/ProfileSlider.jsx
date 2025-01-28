@@ -6,6 +6,8 @@ import Img3 from "../../assets/WhyWeStandOut/DoctorImg.webp";
 
 function ProfileSlider() {
   const slickSettings = {
+    autoplay: true,
+    autoplaySpeed: 4000,
     dots: true,
     infinite: true,
     speed: 500,
