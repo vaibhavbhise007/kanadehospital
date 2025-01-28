@@ -7,24 +7,47 @@ const BlogSchema = new mongoose.Schema({
     required: true,
     trim: true,
   },
-  category: {
+  about:{
     type: String,
     required: true,
-    trim: true,
+   
+  },
+  subtitle1: {
+    type: String,
+    required: true,
+   
+  },
+  about1:{
+    type: String,
+    required: true,
+   
+  },
+  subtitle2: {
+    type: String,
+    required: true,
+    
+  },
+  about2:{
+    type: String,
+    required: true,
+    
+  },
+  subtitle3: {
+    type: String,
+    required: true,
+  },
+  about3:{
+    type: String,
+    required: true,
+    
   },
   img: {
     type: String,
-    required: true,
-
+    required: false
   },
   img_id: {
     type: String,
-    default: null,
-  },
-  content: {
-    type: String,
-    required: true,
-    trim: true,
+    required: false
   },
   author: {
     type: String,

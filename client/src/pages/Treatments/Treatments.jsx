@@ -7,6 +7,7 @@ import { fetchTreatments } from "../../stores/actions/treatmentAction";
 import Loader from "../../components/Loader/Loader";
 import { NavLink } from "react-router-dom";
 import TreatmentCard from "../../components/ui/TreatmentCard";
+import bgimg from '../../assets/bgdoctor.jpg';
 
 export default function Treatments() {
   const dispatch = useDispatch();
@@ -37,11 +38,16 @@ export default function Treatments() {
         </div>
       ) : (
         <div className="bg-white pt-24">
-          <div className="relative py-16 bg-[#e6dfdf]">
+          <div className="relative py-16">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="text-center text-black">
-                <h1 className="text-4xl font-bold mb-4">Our Treatments</h1>
-                <p className="text-lg font-serif text-gray-600">
+                {/* Background Image */}
+            <div
+              className="absolute opacity-100 inset-0 bg-cover z-0"
+              style={{ backgroundImage: `url(${bgimg || ""})` }}
+            ></div>
+                <h1 className="text-4xl font-bold mb-4 relative">Our Treatments</h1>
+                <p className="text-lg font-serif text-gray-600 relative">
                   Advanced laser treatments for better outcomes
                 </p>
               </div>
