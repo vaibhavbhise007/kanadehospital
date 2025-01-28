@@ -6,13 +6,15 @@ export default {
   theme: {
     extend: {
       // Add custom configurations if needed
+      textColor: ['active'],
+      fontWeight: ['active'],
       fontFamily: {
         fira: ["'Fira Sans Condensed'", "sans-serif"],
       },
     },
   },
   plugins: [
-    
+
     // Add any Tailwind plugins if you're using them
   ],
 };

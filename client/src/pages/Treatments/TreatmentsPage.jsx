@@ -2,6 +2,8 @@ import React, { useRef } from "react";
 import { useSelector } from "react-redux";
 import { useParams, Link } from "react-router-dom";
 import bgimg from "../../assets/bgdoctor.jpg";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import {
   Breadcrumb,
   BreadcrumbList,
@@ -12,6 +14,14 @@ import {
 } from "../../components/ui/Breadcrumb";
 
 function TreatmentsPage() {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.state?.scrollToTop) {
+      window.scrollTo(0, 0); // Scroll to the top
+    }
+  }, [location]);
+
   // Scrolling
   const titleSection = useRef(null);
   const aboutSection = useRef(null);
@@ -48,6 +58,17 @@ function TreatmentsPage() {
   if (!treatment)
     return <div className="text-center text-red-500">Treatment not found!</div>;
 
+  // Utility function to handle text splitting on periods
+  function formatTextWithLineBreaks(text) {
+    const sentences = text.split(".").map((sentence) => sentence.trim());
+    return sentences.map((sentence, index) => (
+      <p key={index} className="text-gray-600 text-xl font-serif mt-4">
+        {sentence}
+        {index !== sentences.length - 1 && "."}
+      </p>
+    ));
+  }
+
   return (
     <div className="flex flex-col">
       <div className="bg-white pt-24">
@@ -69,7 +90,7 @@ function TreatmentsPage() {
             </div>
           </div>
         </div>
-        <div className=" absolute z-10  items-center py-4 pl-16">
+        <div className="absolute z-10  items-center py-4 pl-16">
           <Breadcrumb className="mb-4">
             <BreadcrumbList>
               <BreadcrumbItem>
@@ -107,7 +128,7 @@ function TreatmentsPage() {
             >
               Overview: What is <span>{treatment.title}</span>?
             </h2>
-            <p className="text-gray-600 text-xl font-serif pt-4">
+            <p className="text-gray-600 text-xl font-serif mt-4">
               {treatment.description}
             </p>
             <h2
@@ -116,27 +137,23 @@ function TreatmentsPage() {
             >
               Causes And Risk Factors
             </h2>
-            <p className="text-gray-600 text-xl font-serif pt-4">
-              {treatment.causes}
-            </p>
+            {formatTextWithLineBreaks(treatment.causes)}
+
             <h2
               ref={symptomsSection}
               className="text-2xl font-bold text-black pt-8"
             >
               Symptoms of <span>{treatment.title}</span>
             </h2>
-            <p className="text-gray-600 text-xl font-serif pt-4">
-              {treatment.symptoms}
-            </p>
+            {formatTextWithLineBreaks(treatment.symptoms)}
+
             <h2
               ref={treatmentSection}
               className="text-2xl font-bold text-black pt-8"
             >
               Treatment Details
             </h2>
-            <p className="text-gray-600 text-xl font-serif pt-4 pb-8">
-              {treatment.treatmentdetails}
-            </p>
+            {formatTextWithLineBreaks(treatment.treatmentdetails)}
           </div>
 
           {/* Image and Sticky Navigation Section */}

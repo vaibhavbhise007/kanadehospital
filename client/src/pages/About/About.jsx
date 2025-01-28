@@ -3,7 +3,15 @@ import backgroundImage1 from "../../assets/AboutsUsBackgroundImage.jpg";
 import DoctorPhoto from "../../assets/DoctorPhoto.png";
 import OurSpecialists from "../../components/home/OurSpecialists";
 import ProfileSlider from "../../components/about/ProfileSlider";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+
 export default function About() {
+  useEffect(() => {
+    if (location.state?.scrollToTop) {
+      window.scrollTo(0, 0); // Scroll to the top
+    }
+  }, [location]);
   const slickSettings = {
     dots: true,
     infinite: true,
@@ -11,6 +19,7 @@ export default function About() {
     slidesToShow: 1,
     slidesToScroll: 1,
   };
+
   const features = [
     {
       title: "World Class Doctors",

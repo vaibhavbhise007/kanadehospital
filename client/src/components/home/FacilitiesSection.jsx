@@ -1,15 +1,15 @@
-import React from 'react';
-import bg from '../../assets/texture.jpg';
-import f1 from '../../assets/f1.jpg';
-import f2 from '../../assets/f2.jpg';
-import f3 from '../../assets/f3.jpg';
-import f4 from '../../assets/f4.jpg';
-import f5 from '../../assets/f5.jpg';
-import f6 from '../../assets/f6.jpg';
+import React from "react";
+import bg from "../../assets/texture.jpg";
+import f1 from "../../assets/f1.jpg";
+import f2 from "../../assets/f2.jpg";
+import f3 from "../../assets/f3.jpg";
+import f4 from "../../assets/f4.jpg";
+import f5 from "../../assets/f5.jpg";
+import f6 from "../../assets/f6.jpg";
 
 function FacilitiesSection() {
   return (
-    <section className='relative px-4 lg:px-8'>
+    <section className="relative px-4 lg:px-8">
       <div
         className="absolute inset-0 bg-cover bg-center -z-10"
         style={{
@@ -22,17 +22,21 @@ function FacilitiesSection() {
           Amenities In Kanade Hospital
         </h1>
         <p>
-          Kanade Hospital, Rahata offers a variety of amenities to make your stay with us as easy and comfortable as possible.
-          Right from using highly advanced medical equipment to delivering personalized care to patients, we leave no stone
-          unturned to deliver you simply the best.
+          Kanade Hospital, Rahata offers a variety of amenities to make your
+          stay with us as easy and comfortable as possible. Right from using
+          highly advanced medical equipment to delivering personalized care to
+          patients, we leave no stone unturned to deliver you simply the best.
         </p>
       </div>
 
       {/* Main Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 px-8 pb-8">
-        
         {/* Facility 1 */}
-        <div className="bg-white hover:shadow-xl p-6 flex flex-col sm:flex-row items-center sm:space-x-4 sm:space-y-0 border-1 border-black transition-transform transform hover:scale-105">
+        <div className="bg-white hover:shadow-xl p-6 flex flex-col sm:flex-row items-center sm:space-x-4 sm:space-y-0 border-1 border-black transition-transform transform hover:scale-105 group overflow-hidden">
+          {/* <div className="absolute w-full h-60 -top-6 -left-96 rounded-r-full bg-red-600  group-hover:opacity-100 group-hover:translate-x-80 opacity-0 group-hover:sscale-150 transition-transform duration-700">
+            {" "}
+            Kaustubh
+          </div> */}
           <img
             src={f1}
             alt="Hospital Pharmacy"

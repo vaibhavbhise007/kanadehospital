@@ -6,16 +6,16 @@ const AppointmentSchema = new mongoose.Schema({
     required: true,
     trim: true,
   },
-  address: {
-    type: String,
-    required: true,
-    trim: true,
-  },
   mobile: {
     type: String,
     unique: true,
     required: true,
 
+  },
+  address: {
+    type: String,
+    required: true,
+    trim: true,
   },
   appointmentDateTime: {
     type: Date,
