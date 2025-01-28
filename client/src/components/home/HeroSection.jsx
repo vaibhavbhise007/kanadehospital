@@ -7,6 +7,7 @@ import React, { useEffect, useState } from "react";
 import textureimg from "../../assets/texture.jpg";
 import BlurText from "../ui/BlurText";
 import ErrorBoundary from "../error/ErrorBoundary";
+import backgroundImg from "../../assets/landingpageimg.jpg";
 
 const handleAnimationComplete = () => {
   console.log("Animation completed!");
@@ -26,8 +27,8 @@ export default function HeroSection() {
       <div
         className="absolute inset-0 -z-0 bg-cover bg-center"
         style={{
-          backgroundImage: `url(${textureimg})`,
-          opacity: 0.2, // Adjust opacity here (lower is more transparent)
+          backgroundImage: `url(${backgroundImg})`,
+          opacity: 0.7, // Adjust opacity here (lower is more transparent)
         }}
       ></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

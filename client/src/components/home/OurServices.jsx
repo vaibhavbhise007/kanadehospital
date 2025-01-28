@@ -1,55 +1,66 @@
-import React, { useState } from "react";
-import { Button } from "../ui/Button";
-import s1 from "../../assets/services/s1.jpg";
-import s2 from "../../assets/services/s2.jpg";
-import s3 from "../../assets/services/s3.jpg";
-import s4 from "../../assets/services/s4.jpg";
-import s5 from "../../assets/services/s5.jpg";
-import s6 from "../../assets/services/s6.jpg";
-import s7 from "../../assets/services/s7.jpg";
-import s8 from "../../assets/services/s8.jpg";
-import s9 from "../../assets/services/s9.jpg";
-import s10 from "../../assets/services/s10.jpg";
-import s11 from "../../assets/services/s11.jpg";
-import textureimg from "../../assets/texture1.jpg";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { fetchTreatments } from "../../stores/actions/treatmentAction";
+import { Button } from "../ui/Button";
+import Loader from "../../components/Loader/Loader";
+import textureimg from "../../assets/texture1.jpg";
 
-function OurServices() {
+function OurTreatments() {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const services = [
-    { id: 1, title: "Endometriosis laparoscopic treatment", image: s1 },
-    { id: 2, title: "Uterine cancer", image: s2 },
-    { id: 3, title: "Tubal Recanalization", image: s3 },
-    { id: 4, title: "TOT", image: s4 },
-    { id: 5, title: "MTP and family planning tubectomy operation", image: s5 },
-    { id: 6, title: "Sonography facility", image: s6 },
-    { id: 7, title: "Pathology facility", image: s7 },
-    { id: 8, title: "NDVH", image: s8 },
-    { id: 9, title: "vNOTES Hysterectomy", image: s9 },
-    { id: 10, title: "Laser piles treatment", image: s10 },
-    { id: 11, title: "G spot", image: s11 },
-  ];
+  const { treatments, loading, error } = useSelector(
+    (state) => state.treatment
+  );
+
+  useEffect(() => {
+    dispatch(fetchTreatments());
+  }, [dispatch]);
 
   const [activeIndex, setActiveIndex] = useState(0);
 
   const handleNext = () => {
-    setActiveIndex((prevIndex) => (prevIndex + 1) % services.length);
+    setActiveIndex((prevIndex) => (prevIndex + 1) % (treatments?.length || 1));
   };
 
   const handlePrev = () => {
     setActiveIndex((prevIndex) =>
-      prevIndex === 0 ? services.length - 1 : prevIndex - 1
+      prevIndex === 0 ? (treatments?.length || 1) - 1 : prevIndex - 1
     );
   };
 
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <Loader />
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="text-center text-red-500">
+        <p>Error: {error}</p>
+      </div>
+    );
+  }
+
+  if (!treatments || treatments.length === 0) {
+    return (
+      <div className="text-center text-gray-600">
+        <p>No treatments available at the moment.</p>
+      </div>
+    );
+  }
+
   return (
-    <section className="relative py-8  px-4 lg:px-8">
+    <section className="relative py-8 px-4 lg:px-8">
       <div
         className="absolute inset-0 bg-cover -z-10"
         style={{
           backgroundImage: `url(${textureimg})`,
-          opacity: 0.3, // Increased opacity for better visibility of background
+          opacity: 0.3,
         }}
       ></div>
 
@@ -62,20 +73,27 @@ function OurServices() {
 
         {/* Grid Layout for Desktop */}
         <div className="hidden sm:grid grid-cols-2 lg:grid-cols-4 gap-5 px-8">
-          {services.map((service) => (
+          {treatments.map((treatment) => (
             <div
-              key={service.id}
+              key={treatment.id}
               className="relative bg-blue-100 shadow-lg hover:border-2 border-black overflow-hidden transition-transform transform hover:scale-105"
             >
               <img
-                src={service.image}
-                alt={service.title}
+                src={treatment.img}
+                alt={treatment.title}
                 className="w-full h-60 object-cover"
               />
               <div className="absolute inset-0 top-20 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
-                <div className="flex rounded-sm bg-gradient-to-r from-blue-600 to-teal-400 bg-opacity-30 p-5 items-center border-black">
+                <div
+                  className="flex rounded-sm bg-gradient-to-r from-blue-600 to-teal-400 bg-opacity-30 p-5 items-center border-black cursor-pointer"
+                  onClick={() => {
+                    navigate(`/treatments/${treatment._id}`, {
+                      state: { scrollToTop: true },
+                    });
+                  }}
+                >
                   <p className="text-black text-lg font-semibold">
-                    {service.title}
+                    {treatment.title}
                   </p>
                 </div>
               </div>
@@ -86,19 +104,19 @@ function OurServices() {
         {/* Carousel for Mobile View */}
         <div id="default-carousel" className="relative w-full sm:hidden">
           <div className="relative h-56 overflow-hidden rounded-lg">
-            {services.map((service, index) => (
+            {treatments.map((treatment, index) => (
               <div
-                key={service.id}
+                key={treatment.id}
                 className={`absolute w-full transition-opacity duration-700 ease-in-out ${
                   index === activeIndex ? "opacity-100" : "opacity-0"
                 }`}
               >
                 <p className="text-black text-xl font-semibold">
-                  {service.title}
+                  {treatment.title}
                 </p>
                 <img
-                  src={service.image}
-                  alt={service.title}
+                  src={treatment.image}
+                  alt={treatment.title}
                   className="block w-full h-full object-cover"
                 />
               </div>
@@ -107,7 +125,7 @@ function OurServices() {
 
           {/* Slider Indicators */}
           <div className="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3">
-            {services.map((_, index) => (
+            {treatments.map((_, index) => (
               <button
                 key={index}
                 type="button"
@@ -180,4 +198,4 @@ function OurServices() {
   );
 }
 
-export default OurServices;
+export default OurTreatments;
