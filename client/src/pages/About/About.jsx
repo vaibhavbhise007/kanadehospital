@@ -25,7 +25,7 @@ export default function About() {
       <div className="bg-white">
         <div className="bg-[rgb(107,71,55)] bg-opacity-80 pt-16 relative">
           <div
-            className="py-16 mb-8 opacity-80 bg-opacity-45 bg-cover -z-0 "
+            className="py-16 mb-8 opacity-80 bg-opacity-50 bg-cover -z-0 "
             style={{
               backgroundImage: `url(${backgroundImage2})`,
             }}
