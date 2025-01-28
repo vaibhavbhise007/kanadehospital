@@ -64,7 +64,7 @@ export default function Blog() {
               <div className="grid md:grid-cols-2  gap-8">
                 {blogs.map((blog) => (
                   <BlogCard
-                    key={blog._id} // ✅ Ensure a unique key for each blog
+                    
                     imageSrc={blog.img}
                     title={blog.title}
                     about={blog.about}
