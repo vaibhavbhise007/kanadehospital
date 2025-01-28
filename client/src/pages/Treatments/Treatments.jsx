@@ -30,11 +30,11 @@ export default function Treatments() {
         <div>
           <div className="bg-white pt-24">
             <div className="relative py-16">
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-                <div className="text-center text-black">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
+                <div className="text-center  w-full text-black">
                   {/* Background Image */}
                   <div
-                    className="absolute inset-0 bg-cover bg-center z-0"
+                    className="absolute inset-0  bg-cover bg-center z-0"
                     style={{ backgroundImage: `url(${bgimg})` }}
                   ></div>
                   <h1 className="text-4xl font-bold mb-4 relative">Our Treatments</h1>
