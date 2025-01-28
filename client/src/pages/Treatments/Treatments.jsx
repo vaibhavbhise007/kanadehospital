@@ -2,12 +2,15 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchTreatments } from "../../stores/actions/treatmentAction";
 import Loader from "../../components/Loader/Loader";
-import TreatmentCard from "../../components/ui/TreatmentCard";
 import bgimg from "../../assets/bgdoctor.jpg";
+import TreatmentCard from "../../components/ui/TreatmentCard";
+
 
 export default function Treatments() {
   const dispatch = useDispatch();
-  const { treatments, loading, error } = useSelector((state) => state.treatment);
+  const { treatments, loading, error } = useSelector(
+    (state) => state.treatment
+  );
 
   useEffect(() => {
     dispatch(fetchTreatments());

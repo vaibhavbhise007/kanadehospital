@@ -4,7 +4,7 @@ import DoctorPhoto from "../../assets/DoctorPhoto.png";
 import OurSpecialists from "../../components/home/OurSpecialists";
 import ProfileSlider from "../../components/about/ProfileSlider";
 import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import backgroundImage2 from "../../assets/aboutBackgroundImg.jpg";
 
 export default function About() {
   useEffect(() => {
@@ -47,7 +47,8 @@ export default function About() {
   return (
     <>
       <div className="bg-white">
-        <div className="bg-white pt-16">
+        <div className="bg-white pt-16 relative">
+          <img src={backgroundImage2} className="absolute" alt="" />
           <div className="py-16 mb-8 bg-[#e6dfdf]">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="text-center text-black">
