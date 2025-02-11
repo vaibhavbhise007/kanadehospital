@@ -33,10 +33,9 @@ function FacilitiesSection() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 px-8 pb-8">
         {/* Facility 1 */}
         <div className="bg-white hover:shadow-xl p-6 flex flex-col sm:flex-row items-center sm:space-x-4 sm:space-y-0 border-1 border-black transition-transform transform hover:scale-105 group overflow-hidden">
-          {/* <div className="absolute w-full h-60 -top-6 -left-96 rounded-r-full bg-red-600  group-hover:opacity-100 group-hover:translate-x-80 opacity-0 group-hover:sscale-150 transition-transform duration-700">
-            {" "}
+          <div className="absolute w-full h-60 -top-6 -left-96 rounded-r-full bg-black  text-center group-hover:opacity-100 group-hover:left-0 opacity-0 transition-all duration-500 text-white pt-10">
             Kaustubh
-          </div> */}
+          </div>
           <img
             src={f1}
             alt="Hospital Pharmacy"
