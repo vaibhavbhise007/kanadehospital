@@ -2,10 +2,10 @@
   "name": "react-vite-app",
   "version": "1.0.0",
   "scripts": {
-    "start": "npm run server --prefix server",
+    "start": "node init && npm run server --prefix server",
     "server": "nodemon server/server.js",
     "client": "npm run dev --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "node init && concurrently \"npm run server\" \"npm run client\""
   },
   "dependencies": {
     "@react-spring/web": "^9.7.5",

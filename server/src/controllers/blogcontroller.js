@@ -7,12 +7,12 @@ const { cloudinary } = require("../configs/cloudinary");
 const createBlog = async (req, res) => {
   try {
     const { title, subtitle, contain, author } = req.body;
-    console.log( req.body)
+    console.log(req.body)
     const findBlog = await Blog.findOne({ title: title });
     if (findBlog) {
       return res.status(400).json({ error: 'Blog title already exists' });
     }
-    if(contain.length===0){
+    if (contain.length === 0) {
       return res.status(400).json({ error: 'contain requre' });
     }
     let imageUrl = null;
@@ -35,15 +35,18 @@ const createBlog = async (req, res) => {
       img_id: imageId,
       author: author || 'Admin', // Default to 'Admin' if not provided
     });
-    contain.map(async (cant) => {
+    const contentPromises = contain.map(async (cant) => {
       const content = new Contain({
         tital: cant.title,
         subcantain: cant.subcontain,
         blog: blog._id,
-      })
-      await content.save()
-      blog.contain.push(content._id)
-    })
+      });
+
+      await content.save();
+      return content._id;
+    });
+
+    blog.contain = await Promise.all(contentPromises);
     await blog.save();
     res.status(201).json({ message: 'Blog created successfully', blog });
   } catch (err) {
