@@ -7,40 +7,14 @@ const BlogSchema = new mongoose.Schema({
     required: true,
     trim: true,
   },
-  about:{
-    type: String,
-    required: true,
-   
-  },
-  subtitle1: {
-    type: String,
-    required: true,
-   
-  },
-  about1:{
-    type: String,
-    required: true,
-   
-  },
-  subtitle2: {
-    type: String,
-    required: true,
-    
-  },
-  about2:{
-    type: String,
-    required: true,
-    
-  },
-  subtitle3: {
+  subtitle:{
     type: String,
     required: true,
   },
-  about3:{
-    type: String,
-    required: true,
-    
-  },
+  contain:[ {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Contain",
+  }],
   img: {
     type: String,
     required: false
@@ -52,8 +26,7 @@ const BlogSchema = new mongoose.Schema({
   author: {
     type: String,
     required: true,
-  },
-  
+  }
 }, {
   timestamps: true, // Automatically manages createdAt and updatedAt fields
 });

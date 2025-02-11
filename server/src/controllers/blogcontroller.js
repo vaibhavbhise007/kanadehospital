@@ -1,42 +1,49 @@
 const Blog = require('../models/blogmodel');
-const {User}= require('../models/user.model');
+const { User } = require('../models/user.model');
+const Contain = require('../models/contain.model.js');
 const { cloudinary } = require("../configs/cloudinary");
 
 // Create a new blog post
 const createBlog = async (req, res) => {
   try {
-    const { title, about, subtitle1,about1,subtitle2, about2,subtitle3,about3,author } = req.body;
+    const { title, subtitle, contain, author } = req.body;
+    console.log( req.body)
     const findBlog = await Blog.findOne({ title: title });
     if (findBlog) {
       return res.status(400).json({ error: 'Blog title already exists' });
     }
+    if(contain.length===0){
+      return res.status(400).json({ error: 'contain requre' });
+    }
     let imageUrl = null;
     let imageId = null;
     // Assuming `req.files.img` is an array of uploaded files
-if (req.files && req.files.img && req.files.img.length > 0) {
+    if (req.files && req.files.img && req.files.img.length > 0) {
 
-  // Iterate over the array of files and upload each one
-  for (const file of req.files.img) {
-    const imageUploaded = await cloudinary.v2.uploader.upload(file.path);
-      imageUrl=imageUploaded.secure_url;
-      imageId= imageUploaded.public_id;
-  }
-}
-
+      // Iterate over the array of files and upload each one
+      for (const file of req.files.img) {
+        const imageUploaded = await cloudinary.v2.uploader.upload(file.path);
+        imageUrl = imageUploaded.secure_url;
+        imageId = imageUploaded.public_id;
+      }
+    }
+    console.log(imageUrl, imageId)
     const blog = new Blog({
       title,
-      about,
-      subtitle1,
-      about1,
-      subtitle2,
-      about2,
-      subtitle3,
-      about3,
+      subtitle,
       img: imageUrl,
       img_id: imageId,
       author: author || 'Admin', // Default to 'Admin' if not provided
     });
-
+    contain.map(async (cant) => {
+      const content = new Contain({
+        tital: cant.title,
+        subcantain: cant.subcontain,
+        blog: blog._id,
+      })
+      await content.save()
+      blog.contain.push(content._id)
+    })
     await blog.save();
     res.status(201).json({ message: 'Blog created successfully', blog });
   } catch (err) {
@@ -47,7 +54,7 @@ if (req.files && req.files.img && req.files.img.length > 0) {
 // Get all blog posts
 const getAllBlogs = async (req, res) => {
   try {
-    const blogs = await Blog.find();
+    const blogs = await Blog.find().populate('contain');
     res.status(200).json(blogs);
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -96,7 +103,7 @@ const getBlogById = async (req, res) => {
 const updateBlog = async (req, res) => {
   try {
     const { id } = req.params;
-    const { title, about, subtitle1,about1,subtitle2, about2,subtitle3,about3,author } = req.body;
+    const { title, about, subtitle1, about1, subtitle2, about2, subtitle3, about3, author } = req.body;
 
     const blog = await Blog.findById(id);
     if (!blog) {
@@ -167,3 +174,5 @@ module.exports = {
   updateBlog,
   deleteBlog,
 };
+
+

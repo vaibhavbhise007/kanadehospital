@@ -32,7 +32,9 @@ export default function useCreateBlog() {
     formData.append('title', post.title);
     formData.append('category', post.category);
     formData.append('content', post.content);
-
+content.map((can,index)=>{
+  formData.append(`content[${index}]`, can)
+})
     if (post.imageFile) {
       formData.append('img', post.imageFile); // Ensure 'img' matches the backend's expected field
     } else {
